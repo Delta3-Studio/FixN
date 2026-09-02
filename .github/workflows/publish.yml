@@ -14,8 +14,7 @@ on:
                 type: boolean
                 required: false
                 default: false
-
-
+                
 env:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
     DOTNET_CLI_TELEMETRY_OPTOUT: true
@@ -81,6 +80,7 @@ jobs:
         if: github.event.inputs.release_nuget == 'true' && github.ref == 'refs/heads/master' # && needs.build.outputs.IsNewVersion
         needs: build
         permissions:
+            contents: write
             id-token: write
         steps:
             -   name: NuGet login
