@@ -1,0 +1,5765 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Fix | Fixed point number </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Fix | Fixed point number ">
+      
+      <meta name="description" content="32-bit signed fixed point number Q16.16">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="FixN">
+            FixN
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="FixN.Fix">
+
+
+
+  <h1 id="FixN_Fix" data-uid="FixN.Fix" class="text-break">
+Struct Fix  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="FixN.html">FixN</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FixN.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>32-bit signed fixed point number Q16.16</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonConverter(typeof(Fix.FixedJsonConverter))]
+public readonly struct Fix : INumber&lt;Fix&gt;, IComparable, IComparable&lt;Fix&gt;, IComparisonOperators&lt;Fix, Fix, bool&gt;, IModulusOperators&lt;Fix, Fix, Fix&gt;, INumberBase&lt;Fix&gt;, IAdditionOperators&lt;Fix, Fix, Fix&gt;, IAdditiveIdentity&lt;Fix, Fix&gt;, IDecrementOperators&lt;Fix&gt;, IDivisionOperators&lt;Fix, Fix, Fix&gt;, IEquatable&lt;Fix&gt;, IEqualityOperators&lt;Fix, Fix, bool&gt;, IIncrementOperators&lt;Fix&gt;, IMultiplicativeIdentity&lt;Fix, Fix&gt;, IMultiplyOperators&lt;Fix, Fix, Fix&gt;, ISpanFormattable, IFormattable, ISpanParsable&lt;Fix&gt;, IParsable&lt;Fix&gt;, IUtf8SpanFormattable, IUtf8SpanParsable&lt;Fix&gt;, ISubtractionOperators&lt;Fix, Fix, Fix&gt;, IUnaryNegationOperators&lt;Fix, Fix&gt;, IUnaryPlusOperators&lt;Fix, Fix&gt;, IMinMaxValue&lt;Fix&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.inumber-1">INumber</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable">IComparable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.icomparisonoperators-3">IComparisonOperators</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.imodulusoperators-3">IModulusOperators</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.inumberbase-1">INumberBase</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.iadditionoperators-3">IAdditionOperators</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.iadditiveidentity-2">IAdditiveIdentity</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.idecrementoperators-1">IDecrementOperators</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.idivisionoperators-3">IDivisionOperators</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3">IEqualityOperators</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.iincrementoperators-1">IIncrementOperators</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.imultiplicativeidentity-2">IMultiplicativeIdentity</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.imultiplyoperators-3">IMultiplyOperators</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.ispanformattable">ISpanFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.ispanparsable-1">ISpanParsable</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iparsable-1">IParsable</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iutf8spanformattable">IUtf8SpanFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iutf8spanparsable-1">IUtf8SpanParsable</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.isubtractionoperators-3">ISubtractionOperators</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.iunarynegationoperators-2">IUnaryNegationOperators</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.iunaryplusoperators-2">IUnaryPlusOperators</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>, <a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.iminmaxvalue-1">IMinMaxValue</a>&lt;<a class="xref" href="FixN.Fix.html">Fix</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="FixN_Fix__ctor_" data-uid="FixN.Fix.#ctor*"></a>
+
+  <h3 id="FixN_Fix__ctor" data-uid="FixN.Fix.#ctor">
+  Fix()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fix()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix__ctor_" data-uid="FixN.Fix.#ctor*"></a>
+
+  <h3 id="FixN_Fix__ctor_System_Boolean_" data-uid="FixN.Fix.#ctor(System.Boolean)">
+  Fix(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fix(bool v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix__ctor_" data-uid="FixN.Fix.#ctor*"></a>
+
+  <h3 id="FixN_Fix__ctor_System_Decimal_" data-uid="FixN.Fix.#ctor(System.Decimal)">
+  Fix(decimal)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fix(decimal v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix__ctor_" data-uid="FixN.Fix.#ctor*"></a>
+
+  <h3 id="FixN_Fix__ctor_System_Double_" data-uid="FixN.Fix.#ctor(System.Double)">
+  Fix(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fix(double v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix__ctor_" data-uid="FixN.Fix.#ctor*"></a>
+
+  <h3 id="FixN_Fix__ctor_System_Int32_" data-uid="FixN.Fix.#ctor(System.Int32)">
+  Fix(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fix(int v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix__ctor_" data-uid="FixN.Fix.#ctor*"></a>
+
+  <h3 id="FixN_Fix__ctor_System_Single_" data-uid="FixN.Fix.#ctor(System.Single)">
+  Fix(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fix(float v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="FixN_Fix_Deg2Rad" data-uid="FixN.Fix.Deg2Rad">
+  Deg2Rad
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Deg2Rad</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Deg360" data-uid="FixN.Fix.Deg360">
+  Deg360
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Deg360</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_E" data-uid="FixN.Fix.E">
+  E
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix E</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Epsilon" data-uid="FixN.Fix.Epsilon">
+  Epsilon
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Epsilon</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Four" data-uid="FixN.Fix.Four">
+  Four
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Four</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Half" data-uid="FixN.Fix.Half">
+  Half
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Half</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Ln2" data-uid="FixN.Fix.Ln2">
+  Ln2
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Ln2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Log10E" data-uid="FixN.Fix.Log10E">
+  Log10E
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Log10E</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Log2E" data-uid="FixN.Fix.Log2E">
+  Log2E
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Log2E</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_MaxIntegerValue" data-uid="FixN.Fix.MaxIntegerValue">
+  MaxIntegerValue
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix MaxIntegerValue</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_MaxValue" data-uid="FixN.Fix.MaxValue">
+  MaxValue
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix MaxValue</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_MinIntegerValue" data-uid="FixN.Fix.MinIntegerValue">
+  MinIntegerValue
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix MinIntegerValue</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_MinValue" data-uid="FixN.Fix.MinValue">
+  MinValue
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix MinValue</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_NegativeOne" data-uid="FixN.Fix.NegativeOne">
+  NegativeOne
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix NegativeOne</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_One" data-uid="FixN.Fix.One">
+  One
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix One</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_OneHundred" data-uid="FixN.Fix.OneHundred">
+  OneHundred
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix OneHundred</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_OneThousand" data-uid="FixN.Fix.OneThousand">
+  OneThousand
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix OneThousand</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Pi" data-uid="FixN.Fix.Pi">
+  Pi
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Pi</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_PiOverTwo" data-uid="FixN.Fix.PiOverTwo">
+  PiOverTwo
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix PiOverTwo</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Quarter" data-uid="FixN.Fix.Quarter">
+  Quarter
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Quarter</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Rad2Deg" data-uid="FixN.Fix.Rad2Deg">
+  Rad2Deg
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Rad2Deg</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_RawValue" data-uid="FixN.Fix.RawValue">
+  RawValue
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int RawValue</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Root2" data-uid="FixN.Fix.Root2">
+  Root2
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Root2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Root3" data-uid="FixN.Fix.Root3">
+  Root3
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Root3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Tau" data-uid="FixN.Fix.Tau">
+  Tau
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Tau</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Ten" data-uid="FixN.Fix.Ten">
+  Ten
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Ten</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Three" data-uid="FixN.Fix.Three">
+  Three
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Three</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_ThreeHalvesPi" data-uid="FixN.Fix.ThreeHalvesPi">
+  ThreeHalvesPi
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix ThreeHalvesPi</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Two" data-uid="FixN.Fix.Two">
+  Two
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Two</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Fix_Zero" data-uid="FixN.Fix.Zero">
+  Zero
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Fix Zero</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="FixN_Fix_Hi_" data-uid="FixN.Fix.Hi*"></a>
+
+  <h3 id="FixN_Fix_Hi" data-uid="FixN.Fix.Hi">
+  Hi
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Hi { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Lo_" data-uid="FixN.Fix.Lo*"></a>
+
+  <h3 id="FixN_Fix_Lo" data-uid="FixN.Fix.Lo">
+  Lo
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Lo { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="FixN_Fix_Add_" data-uid="FixN.Fix.Add*"></a>
+
+  <h3 id="FixN_Fix_Add_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Add(FixN.Fix,FixN.Fix)">
+  Add(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Add(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Approximately_" data-uid="FixN.Fix.Approximately*"></a>
+
+  <h3 id="FixN_Fix_Approximately_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Approximately(FixN.Fix,FixN.Fix)">
+  Approximately(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Approximately(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Approximately_" data-uid="FixN.Fix.Approximately*"></a>
+
+  <h3 id="FixN_Fix_Approximately_FixN_Fix_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Approximately(FixN.Fix,FixN.Fix,FixN.Fix)">
+  Approximately(Fix, Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Approximately(Fix a, Fix b, Fix epsilon)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>epsilon</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Atan_" data-uid="FixN.Fix.Atan*"></a>
+
+  <h3 id="FixN_Fix_Atan_FixN_Fix_" data-uid="FixN.Fix.Atan(FixN.Fix)">
+  Atan(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Atan(Fix rad)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rad</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Atan2_" data-uid="FixN.Fix.Atan2*"></a>
+
+  <h3 id="FixN_Fix_Atan2_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Atan2(FixN.Fix,FixN.Fix)">
+  Atan2(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Atan2(Fix y, Fix x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>y</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Ceiling_" data-uid="FixN.Fix.Ceiling*"></a>
+
+  <h3 id="FixN_Fix_Ceiling_FixN_Fix_" data-uid="FixN.Fix.Ceiling(FixN.Fix)">
+  Ceiling(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Ceiling(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Clamp_" data-uid="FixN.Fix.Clamp*"></a>
+
+  <h3 id="FixN_Fix_Clamp__1_FixN_Fix_" data-uid="FixN.Fix.Clamp``1(FixN.Fix)">
+  Clamp&lt;T&gt;(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Clamp&lt;T&gt;(Fix value) where T : INumberBase&lt;T&gt;, IMinMaxValue&lt;T&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_CompareTo_" data-uid="FixN.Fix.CompareTo*"></a>
+
+  <h3 id="FixN_Fix_CompareTo_FixN_Fix_" data-uid="FixN.Fix.CompareTo(FixN.Fix)">
+  CompareTo(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(Fix other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_CompareTo_" data-uid="FixN.Fix.CompareTo*"></a>
+
+  <h3 id="FixN_Fix_CompareTo_System_Object_" data-uid="FixN.Fix.CompareTo(System.Object)">
+  CompareTo(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Cos_" data-uid="FixN.Fix.Cos*"></a>
+
+  <h3 id="FixN_Fix_Cos_FixN_Fix_" data-uid="FixN.Fix.Cos(FixN.Fix)">
+  Cos(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Cos(Fix rad)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rad</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Create_" data-uid="FixN.Fix.Create*"></a>
+
+  <h3 id="FixN_Fix_Create__1___0_" data-uid="FixN.Fix.Create``1(``0)">
+  Create&lt;T&gt;(T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Create&lt;T&gt;(T value) where T : INumberBase&lt;T&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Diff_" data-uid="FixN.Fix.Diff*"></a>
+
+  <h3 id="FixN_Fix_Diff_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Diff(FixN.Fix,FixN.Fix)">
+  Diff(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Diff(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Divide_" data-uid="FixN.Fix.Divide*"></a>
+
+  <h3 id="FixN_Fix_Divide_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Divide(FixN.Fix,FixN.Fix)">
+  Divide(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Divide(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Equals_" data-uid="FixN.Fix.Equals*"></a>
+
+  <h3 id="FixN_Fix_Equals_FixN_Fix_" data-uid="FixN.Fix.Equals(FixN.Fix)">
+  Equals(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Fix other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Equals_" data-uid="FixN.Fix.Equals*"></a>
+
+  <h3 id="FixN_Fix_Equals_System_Object_" data-uid="FixN.Fix.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Exp2_" data-uid="FixN.Fix.Exp2*"></a>
+
+  <h3 id="FixN_Fix_Exp2_FixN_Fix_" data-uid="FixN.Fix.Exp2(FixN.Fix)">
+  Exp2(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Exp2(Fix x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Flag_" data-uid="FixN.Fix.Flag*"></a>
+
+  <h3 id="FixN_Fix_Flag_FixN_Fix_" data-uid="FixN.Fix.Flag(FixN.Fix)">
+  Flag(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fix Flag(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Flag_" data-uid="FixN.Fix.Flag*"></a>
+
+  <h3 id="FixN_Fix_Flag_System_Int32_" data-uid="FixN.Fix.Flag(System.Int32)">
+  Flag(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fix Flag(int flag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Floor_" data-uid="FixN.Fix.Floor*"></a>
+
+  <h3 id="FixN_Fix_Floor_FixN_Fix_" data-uid="FixN.Fix.Floor(FixN.Fix)">
+  Floor(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Floor(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_GetHashCode_" data-uid="FixN.Fix.GetHashCode*"></a>
+
+  <h3 id="FixN_Fix_GetHashCode" data-uid="FixN.Fix.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Gt_" data-uid="FixN.Fix.Gt*"></a>
+
+  <h3 id="FixN_Fix_Gt_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Gt(FixN.Fix,FixN.Fix)">
+  Gt(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Gt(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Gte_" data-uid="FixN.Fix.Gte*"></a>
+
+  <h3 id="FixN_Fix_Gte_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Gte(FixN.Fix,FixN.Fix)">
+  Gte(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Gte(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_HasAnyFlag_" data-uid="FixN.Fix.HasAnyFlag*"></a>
+
+  <h3 id="FixN_Fix_HasAnyFlag_FixN_Fix_" data-uid="FixN.Fix.HasAnyFlag(FixN.Fix)">
+  HasAnyFlag(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasAnyFlag(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_HasAnyFlag_" data-uid="FixN.Fix.HasAnyFlag*"></a>
+
+  <h3 id="FixN_Fix_HasAnyFlag_System_Int32_" data-uid="FixN.Fix.HasAnyFlag(System.Int32)">
+  HasAnyFlag(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasAnyFlag(int flag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_HasFlag_" data-uid="FixN.Fix.HasFlag*"></a>
+
+  <h3 id="FixN_Fix_HasFlag_FixN_Fix_" data-uid="FixN.Fix.HasFlag(FixN.Fix)">
+  HasFlag(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasFlag(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_HasFlag_" data-uid="FixN.Fix.HasFlag*"></a>
+
+  <h3 id="FixN_Fix_HasFlag_System_Int32_" data-uid="FixN.Fix.HasFlag(System.Int32)">
+  HasFlag(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasFlag(int flag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsApproximately_" data-uid="FixN.Fix.IsApproximately*"></a>
+
+  <h3 id="FixN_Fix_IsApproximately_FixN_Fix_" data-uid="FixN.Fix.IsApproximately(FixN.Fix)">
+  IsApproximately(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsApproximately(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsApproximately_" data-uid="FixN.Fix.IsApproximately*"></a>
+
+  <h3 id="FixN_Fix_IsApproximately_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.IsApproximately(FixN.Fix,FixN.Fix)">
+  IsApproximately(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsApproximately(Fix value, Fix epsilon)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>epsilon</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsEven_" data-uid="FixN.Fix.IsEven*"></a>
+
+  <h3 id="FixN_Fix_IsEven_FixN_Fix_" data-uid="FixN.Fix.IsEven(FixN.Fix)">
+  IsEven(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsEven(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsNegative_" data-uid="FixN.Fix.IsNegative*"></a>
+
+  <h3 id="FixN_Fix_IsNegative" data-uid="FixN.Fix.IsNegative">
+  IsNegative()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsNegative()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsNonZero_" data-uid="FixN.Fix.IsNonZero*"></a>
+
+  <h3 id="FixN_Fix_IsNonZero" data-uid="FixN.Fix.IsNonZero">
+  IsNonZero()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsNonZero()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsOdd_" data-uid="FixN.Fix.IsOdd*"></a>
+
+  <h3 id="FixN_Fix_IsOdd_FixN_Fix_" data-uid="FixN.Fix.IsOdd(FixN.Fix)">
+  IsOdd(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsOdd(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsPositive_" data-uid="FixN.Fix.IsPositive*"></a>
+
+  <h3 id="FixN_Fix_IsPositive" data-uid="FixN.Fix.IsPositive">
+  IsPositive()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPositive()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsZero_" data-uid="FixN.Fix.IsZero*"></a>
+
+  <h3 id="FixN_Fix_IsZero" data-uid="FixN.Fix.IsZero">
+  IsZero()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsZero()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Lerp_" data-uid="FixN.Fix.Lerp*"></a>
+
+  <h3 id="FixN_Fix_Lerp_FixN_Fix_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Lerp(FixN.Fix,FixN.Fix,FixN.Fix)">
+  Lerp(Fix, Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Lerp(Fix a, Fix b, Fix t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Lerp_" data-uid="FixN.Fix.Lerp*"></a>
+
+  <h3 id="FixN_Fix_Lerp_FixN_Fix_FixN_Fix_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Lerp(FixN.Fix,FixN.Fix,FixN.Fix,FixN.Fix)">
+  Lerp(Fix, Fix, Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Lerp(Fix a, Fix b, Fix total, Fix current)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>total</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>current</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Log2_" data-uid="FixN.Fix.Log2*"></a>
+
+  <h3 id="FixN_Fix_Log2_FixN_Fix_" data-uid="FixN.Fix.Log2(FixN.Fix)">
+  Log2(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Log2(Fix n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Lt_" data-uid="FixN.Fix.Lt*"></a>
+
+  <h3 id="FixN_Fix_Lt_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Lt(FixN.Fix,FixN.Fix)">
+  Lt(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Lt(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Lte_" data-uid="FixN.Fix.Lte*"></a>
+
+  <h3 id="FixN_Fix_Lte_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Lte(FixN.Fix,FixN.Fix)">
+  Lte(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Lte(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Modulo_" data-uid="FixN.Fix.Modulo*"></a>
+
+  <h3 id="FixN_Fix_Modulo_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Modulo(FixN.Fix,FixN.Fix)">
+  Modulo(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Modulo(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Multiply_" data-uid="FixN.Fix.Multiply*"></a>
+
+  <h3 id="FixN_Fix_Multiply_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Multiply(FixN.Fix,FixN.Fix)">
+  Multiply(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Multiply(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Negate_" data-uid="FixN.Fix.Negate*"></a>
+
+  <h3 id="FixN_Fix_Negate_FixN_Fix_" data-uid="FixN.Fix.Negate(FixN.Fix)">
+  Negate(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Negate(Fix f)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Pow_" data-uid="FixN.Fix.Pow*"></a>
+
+  <h3 id="FixN_Fix_Pow_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Pow(FixN.Fix,FixN.Fix)">
+  Pow(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Pow(Fix n, Fix exp)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>exp</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Pow_" data-uid="FixN.Fix.Pow*"></a>
+
+  <h3 id="FixN_Fix_Pow_FixN_Fix_System_Int32_" data-uid="FixN.Fix.Pow(FixN.Fix,System.Int32)">
+  Pow(Fix, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Pow(Fix n, int exp)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>exp</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Raw_" data-uid="FixN.Fix.Raw*"></a>
+
+  <h3 id="FixN_Fix_Raw_System_Int32_" data-uid="FixN.Fix.Raw(System.Int32)">
+  Raw(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Raw(int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Remap_" data-uid="FixN.Fix.Remap*"></a>
+
+  <h3 id="FixN_Fix_Remap_FixN_Fix_FixN_Fix_FixN_Fix_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Remap(FixN.Fix,FixN.Fix,FixN.Fix,FixN.Fix,FixN.Fix)">
+  Remap(Fix, Fix, Fix, Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Remap(Fix value, Fix inMin, Fix inMax, Fix outMin, Fix outMax)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>inMin</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>inMax</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>outMin</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>outMax</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Round_" data-uid="FixN.Fix.Round*"></a>
+
+  <h3 id="FixN_Fix_Round_FixN_Fix_" data-uid="FixN.Fix.Round(FixN.Fix)">
+  Round(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Round(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Round_" data-uid="FixN.Fix.Round*"></a>
+
+  <h3 id="FixN_Fix_Round_FixN_Fix_System_Int32_" data-uid="FixN.Fix.Round(FixN.Fix,System.Int32)">
+  Round(Fix, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Round(Fix value, int digits)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>digits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Sin_" data-uid="FixN.Fix.Sin*"></a>
+
+  <h3 id="FixN_Fix_Sin_FixN_Fix_" data-uid="FixN.Fix.Sin(FixN.Fix)">
+  Sin(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Sin(Fix rad)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rad</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_SinCos_" data-uid="FixN.Fix.SinCos*"></a>
+
+  <h3 id="FixN_Fix_SinCos_FixN_Fix_" data-uid="FixN.Fix.SinCos(FixN.Fix)">
+  SinCos(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (Fix Sin, Fix Cos) SinCos(Fix rad)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rad</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="FixN.Fix.html">Fix</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-fixn.fix,fixn.fix-.sin">Sin</a>, <a class="xref" href="FixN.Fix.html">Fix</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-fixn.fix,fixn.fix-.cos">Cos</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_SmoothStep_" data-uid="FixN.Fix.SmoothStep*"></a>
+
+  <h3 id="FixN_Fix_SmoothStep_FixN_Fix_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.SmoothStep(FixN.Fix,FixN.Fix,FixN.Fix)">
+  SmoothStep(Fix, Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix SmoothStep(Fix a, Fix b, Fix t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_SnapZero_" data-uid="FixN.Fix.SnapZero*"></a>
+
+  <h3 id="FixN_Fix_SnapZero_FixN_Fix_" data-uid="FixN.Fix.SnapZero(FixN.Fix)">
+  SnapZero(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix SnapZero(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_SnapZero_" data-uid="FixN.Fix.SnapZero*"></a>
+
+  <h3 id="FixN_Fix_SnapZero_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.SnapZero(FixN.Fix,FixN.Fix)">
+  SnapZero(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix SnapZero(Fix value, Fix epsilon)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>epsilon</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Sqrt_" data-uid="FixN.Fix.Sqrt*"></a>
+
+  <h3 id="FixN_Fix_Sqrt_FixN_Fix_" data-uid="FixN.Fix.Sqrt(FixN.Fix)">
+  Sqrt(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Sqrt(Fix n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Subtract_" data-uid="FixN.Fix.Subtract*"></a>
+
+  <h3 id="FixN_Fix_Subtract_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Subtract(FixN.Fix,FixN.Fix)">
+  Subtract(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Subtract(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Tan_" data-uid="FixN.Fix.Tan*"></a>
+
+  <h3 id="FixN_Fix_Tan_FixN_Fix_" data-uid="FixN.Fix.Tan(FixN.Fix)">
+  Tan(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Tan(Fix rad)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rad</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_ToBool_" data-uid="FixN.Fix.ToBool*"></a>
+
+  <h3 id="FixN_Fix_ToBool" data-uid="FixN.Fix.ToBool">
+  ToBool()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ToBool()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_ToDecimal_" data-uid="FixN.Fix.ToDecimal*"></a>
+
+  <h3 id="FixN_Fix_ToDecimal" data-uid="FixN.Fix.ToDecimal">
+  ToDecimal()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal ToDecimal()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_ToDouble_" data-uid="FixN.Fix.ToDouble*"></a>
+
+  <h3 id="FixN_Fix_ToDouble" data-uid="FixN.Fix.ToDouble">
+  ToDouble()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ToDouble()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_ToFloat_" data-uid="FixN.Fix.ToFloat*"></a>
+
+  <h3 id="FixN_Fix_ToFloat" data-uid="FixN.Fix.ToFloat">
+  ToFloat()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ToFloat()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_ToInt_" data-uid="FixN.Fix.ToInt*"></a>
+
+  <h3 id="FixN_Fix_ToInt" data-uid="FixN.Fix.ToInt">
+  ToInt()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ToInt()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_ToString_" data-uid="FixN.Fix.ToString*"></a>
+
+  <h3 id="FixN_Fix_ToString" data-uid="FixN.Fix.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_ToString_" data-uid="FixN.Fix.ToString*"></a>
+
+  <h3 id="FixN_Fix_ToString_System_String_" data-uid="FixN.Fix.ToString(System.String)">
+  ToString(string?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string? format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_ToString_" data-uid="FixN.Fix.ToString*"></a>
+
+  <h3 id="FixN_Fix_ToString_System_String_System_IFormatProvider_" data-uid="FixN.Fix.ToString(System.String,System.IFormatProvider)">
+  ToString(string?, IFormatProvider?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_TryFormat_" data-uid="FixN.Fix.TryFormat*"></a>
+
+  <h3 id="FixN_Fix_TryFormat_System_Span_System_Char__System_Int32__System_ReadOnlySpan_System_Char__System_IFormatProvider_" data-uid="FixN.Fix.TryFormat(System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+  TryFormat(Span&lt;char&gt;, out int, ReadOnlySpan&lt;char&gt;, IFormatProvider?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryFormat(Span&lt;char&gt; destination, out int charsWritten, ReadOnlySpan&lt;char&gt; format, IFormatProvider? provider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>destination</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>charsWritten</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>provider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_TryParse_" data-uid="FixN.Fix.TryParse*"></a>
+
+  <h3 id="FixN_Fix_TryParse_System_String_FixN_Fix__" data-uid="FixN.Fix.TryParse(System.String,FixN.Fix@)">
+  TryParse(string, out Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string s, out Fix result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Unflag_" data-uid="FixN.Fix.Unflag*"></a>
+
+  <h3 id="FixN_Fix_Unflag_FixN_Fix_" data-uid="FixN.Fix.Unflag(FixN.Fix)">
+  Unflag(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fix Unflag(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Unflag_" data-uid="FixN.Fix.Unflag*"></a>
+
+  <h3 id="FixN_Fix_Unflag_System_Int32_" data-uid="FixN.Fix.Unflag(System.Int32)">
+  Unflag(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fix Unflag(int flag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="FixN_Fix_op_Explicit_" data-uid="FixN.Fix.op_Explicit*"></a>
+
+  <h3 id="FixN_Fix_op_Explicit_FixN_Fix__System_Boolean" data-uid="FixN.Fix.op_Explicit(FixN.Fix)~System.Boolean">
+  explicit operator bool(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator bool(Fix f)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Explicit_" data-uid="FixN.Fix.op_Explicit*"></a>
+
+  <h3 id="FixN_Fix_op_Explicit_FixN_Fix__System_Decimal" data-uid="FixN.Fix.op_Explicit(FixN.Fix)~System.Decimal">
+  explicit operator decimal(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator decimal(Fix f)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Explicit_" data-uid="FixN.Fix.op_Explicit*"></a>
+
+  <h3 id="FixN_Fix_op_Explicit_FixN_Fix__System_Double" data-uid="FixN.Fix.op_Explicit(FixN.Fix)~System.Double">
+  explicit operator double(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator double(Fix f)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Explicit_" data-uid="FixN.Fix.op_Explicit*"></a>
+
+  <h3 id="FixN_Fix_op_Explicit_FixN_Fix__System_Int32" data-uid="FixN.Fix.op_Explicit(FixN.Fix)~System.Int32">
+  explicit operator int(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator int(Fix f)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Explicit_" data-uid="FixN.Fix.op_Explicit*"></a>
+
+  <h3 id="FixN_Fix_op_Explicit_FixN_Fix__System_Single" data-uid="FixN.Fix.op_Explicit(FixN.Fix)~System.Single">
+  explicit operator float(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator float(Fix f)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Explicit_" data-uid="FixN.Fix.op_Explicit*"></a>
+
+  <h3 id="FixN_Fix_op_Explicit_System_Boolean__FixN_Fix" data-uid="FixN.Fix.op_Explicit(System.Boolean)~FixN.Fix">
+  explicit operator Fix(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Fix(bool v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Implicit_" data-uid="FixN.Fix.op_Implicit*"></a>
+
+  <h3 id="FixN_Fix_op_Implicit_System_Decimal__FixN_Fix" data-uid="FixN.Fix.op_Implicit(System.Decimal)~FixN.Fix">
+  implicit operator Fix(decimal)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Fix(decimal v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Implicit_" data-uid="FixN.Fix.op_Implicit*"></a>
+
+  <h3 id="FixN_Fix_op_Implicit_System_Double__FixN_Fix" data-uid="FixN.Fix.op_Implicit(System.Double)~FixN.Fix">
+  implicit operator Fix(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Fix(double v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Implicit_" data-uid="FixN.Fix.op_Implicit*"></a>
+
+  <h3 id="FixN_Fix_op_Implicit_System_Int32__FixN_Fix" data-uid="FixN.Fix.op_Implicit(System.Int32)~FixN.Fix">
+  implicit operator Fix(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Fix(int v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Implicit_" data-uid="FixN.Fix.op_Implicit*"></a>
+
+  <h3 id="FixN_Fix_op_Implicit_System_Single__FixN_Fix" data-uid="FixN.Fix.op_Implicit(System.Single)~FixN.Fix">
+  implicit operator Fix(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Fix(float v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="eii">Explicit Interface Implementations
+</h2>
+
+
+  <a id="FixN_Fix_Abs_" data-uid="FixN.Fix.Abs*"></a>
+
+  <h3 id="FixN_Fix_Abs_FixN_Fix_" data-uid="FixN.Fix.Abs(FixN.Fix)">
+  Abs(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix Abs(Fix f)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Clamp_" data-uid="FixN.Fix.Clamp*"></a>
+
+  <h3 id="FixN_Fix_Clamp_FixN_Fix_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Clamp(FixN.Fix,FixN.Fix,FixN.Fix)">
+  Clamp(Fix, Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix Clamp(Fix value, Fix min, Fix max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>min</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsEvenInteger_" data-uid="FixN.Fix.IsEvenInteger*"></a>
+
+  <h3 id="FixN_Fix_IsEvenInteger_FixN_Fix_" data-uid="FixN.Fix.IsEvenInteger(FixN.Fix)">
+  IsEvenInteger(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool IsEvenInteger(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsInteger_" data-uid="FixN.Fix.IsInteger*"></a>
+
+  <h3 id="FixN_Fix_IsInteger_FixN_Fix_" data-uid="FixN.Fix.IsInteger(FixN.Fix)">
+  IsInteger(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool IsInteger(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsNegative_" data-uid="FixN.Fix.IsNegative*"></a>
+
+  <h3 id="FixN_Fix_IsNegative_FixN_Fix_" data-uid="FixN.Fix.IsNegative(FixN.Fix)">
+  IsNegative(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool IsNegative(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsOddInteger_" data-uid="FixN.Fix.IsOddInteger*"></a>
+
+  <h3 id="FixN_Fix_IsOddInteger_FixN_Fix_" data-uid="FixN.Fix.IsOddInteger(FixN.Fix)">
+  IsOddInteger(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool IsOddInteger(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsPositive_" data-uid="FixN.Fix.IsPositive*"></a>
+
+  <h3 id="FixN_Fix_IsPositive_FixN_Fix_" data-uid="FixN.Fix.IsPositive(FixN.Fix)">
+  IsPositive(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool IsPositive(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_IsZero_" data-uid="FixN.Fix.IsZero*"></a>
+
+  <h3 id="FixN_Fix_IsZero_FixN_Fix_" data-uid="FixN.Fix.IsZero(FixN.Fix)">
+  IsZero(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool IsZero(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Max_" data-uid="FixN.Fix.Max*"></a>
+
+  <h3 id="FixN_Fix_Max_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Max(FixN.Fix,FixN.Fix)">
+  Max(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix Max(Fix x, Fix y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_MaxMagnitude_" data-uid="FixN.Fix.MaxMagnitude*"></a>
+
+  <h3 id="FixN_Fix_MaxMagnitude_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.MaxMagnitude(FixN.Fix,FixN.Fix)">
+  MaxMagnitude(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix MaxMagnitude(Fix x, Fix y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Min_" data-uid="FixN.Fix.Min*"></a>
+
+  <h3 id="FixN_Fix_Min_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.Min(FixN.Fix,FixN.Fix)">
+  Min(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix Min(Fix x, Fix y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_MinMagnitude_" data-uid="FixN.Fix.MinMagnitude*"></a>
+
+  <h3 id="FixN_Fix_MinMagnitude_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.MinMagnitude(FixN.Fix,FixN.Fix)">
+  MinMagnitude(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix MinMagnitude(Fix x, Fix y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Parse_" data-uid="FixN.Fix.Parse*"></a>
+
+  <h3 id="FixN_Fix_Parse_System_ReadOnlySpan_System_Char__System_Globalization_NumberStyles_System_IFormatProvider_" data-uid="FixN.Fix.Parse(System.ReadOnlySpan{System.Char},System.Globalization.NumberStyles,System.IFormatProvider)">
+  Parse(ReadOnlySpan&lt;char&gt;, NumberStyles, IFormatProvider?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix Parse(ReadOnlySpan&lt;char&gt; s, NumberStyles style, IFormatProvider? provider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>style</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.numberstyles">NumberStyles</a></dt>
+    <dd></dd>
+    <dt><code>provider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Parse_" data-uid="FixN.Fix.Parse*"></a>
+
+  <h3 id="FixN_Fix_Parse_System_ReadOnlySpan_System_Char__System_IFormatProvider_" data-uid="FixN.Fix.Parse(System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+  Parse(ReadOnlySpan&lt;char&gt;, IFormatProvider?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix Parse(ReadOnlySpan&lt;char&gt; s, IFormatProvider? provider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>provider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Parse_" data-uid="FixN.Fix.Parse*"></a>
+
+  <h3 id="FixN_Fix_Parse_System_String_System_Globalization_NumberStyles_System_IFormatProvider_" data-uid="FixN.Fix.Parse(System.String,System.Globalization.NumberStyles,System.IFormatProvider)">
+  Parse(string, NumberStyles, IFormatProvider?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix Parse(string s, NumberStyles style, IFormatProvider? provider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>style</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.numberstyles">NumberStyles</a></dt>
+    <dd></dd>
+    <dt><code>provider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Parse_" data-uid="FixN.Fix.Parse*"></a>
+
+  <h3 id="FixN_Fix_Parse_System_String_System_IFormatProvider_" data-uid="FixN.Fix.Parse(System.String,System.IFormatProvider)">
+  Parse(string, IFormatProvider?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix Parse(string s, IFormatProvider? provider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>provider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_Sign_" data-uid="FixN.Fix.Sign*"></a>
+
+  <h3 id="FixN_Fix_Sign_FixN_Fix_" data-uid="FixN.Fix.Sign(FixN.Fix)">
+  Sign(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static int Sign(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_TryConvertFromSaturating_" data-uid="FixN.Fix.TryConvertFromSaturating*"></a>
+
+  <h3 id="FixN_Fix_TryConvertFromSaturating__1___0_FixN_Fix__" data-uid="FixN.Fix.TryConvertFromSaturating``1(``0,FixN.Fix@)">
+  TryConvertFromSaturating&lt;TOther&gt;(TOther, out Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool TryConvertFromSaturating&lt;TOther&gt;(TOther value, out Fix result) where TOther : INumberBase&lt;TOther&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">TOther</span></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TOther</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_TryConvertFromTruncating_" data-uid="FixN.Fix.TryConvertFromTruncating*"></a>
+
+  <h3 id="FixN_Fix_TryConvertFromTruncating__1___0_FixN_Fix__" data-uid="FixN.Fix.TryConvertFromTruncating``1(``0,FixN.Fix@)">
+  TryConvertFromTruncating&lt;TOther&gt;(TOther, out Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool TryConvertFromTruncating&lt;TOther&gt;(TOther value, out Fix result) where TOther : INumberBase&lt;TOther&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">TOther</span></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TOther</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_TryConvertToChecked_" data-uid="FixN.Fix.TryConvertToChecked*"></a>
+
+  <h3 id="FixN_Fix_TryConvertToChecked__1_FixN_Fix___0__" data-uid="FixN.Fix.TryConvertToChecked``1(FixN.Fix,``0@)">
+  TryConvertToChecked&lt;TOther&gt;(Fix, out TOther)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool TryConvertToChecked&lt;TOther&gt;(Fix value, out TOther result) where TOther : INumberBase&lt;TOther&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <span class="xref">TOther</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TOther</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_TryConvertToSaturating_" data-uid="FixN.Fix.TryConvertToSaturating*"></a>
+
+  <h3 id="FixN_Fix_TryConvertToSaturating__1_FixN_Fix___0__" data-uid="FixN.Fix.TryConvertToSaturating``1(FixN.Fix,``0@)">
+  TryConvertToSaturating&lt;TOther&gt;(Fix, out TOther)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool TryConvertToSaturating&lt;TOther&gt;(Fix value, out TOther result) where TOther : INumberBase&lt;TOther&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <span class="xref">TOther</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TOther</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_TryConvertToTruncating_" data-uid="FixN.Fix.TryConvertToTruncating*"></a>
+
+  <h3 id="FixN_Fix_TryConvertToTruncating__1_FixN_Fix___0__" data-uid="FixN.Fix.TryConvertToTruncating``1(FixN.Fix,``0@)">
+  TryConvertToTruncating&lt;TOther&gt;(Fix, out TOther)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool TryConvertToTruncating&lt;TOther&gt;(Fix value, out TOther result) where TOther : INumberBase&lt;TOther&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <span class="xref">TOther</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TOther</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_TryParse_" data-uid="FixN.Fix.TryParse*"></a>
+
+  <h3 id="FixN_Fix_TryParse_System_ReadOnlySpan_System_Char__System_Globalization_NumberStyles_System_IFormatProvider_FixN_Fix__" data-uid="FixN.Fix.TryParse(System.ReadOnlySpan{System.Char},System.Globalization.NumberStyles,System.IFormatProvider,FixN.Fix@)">
+  TryParse(ReadOnlySpan&lt;char&gt;, NumberStyles, IFormatProvider?, out Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool TryParse(ReadOnlySpan&lt;char&gt; s, NumberStyles style, IFormatProvider? provider, out Fix result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>style</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.numberstyles">NumberStyles</a></dt>
+    <dd></dd>
+    <dt><code>provider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_TryParse_" data-uid="FixN.Fix.TryParse*"></a>
+
+  <h3 id="FixN_Fix_TryParse_System_ReadOnlySpan_System_Char__System_IFormatProvider_FixN_Fix__" data-uid="FixN.Fix.TryParse(System.ReadOnlySpan{System.Char},System.IFormatProvider,FixN.Fix@)">
+  TryParse(ReadOnlySpan&lt;char&gt;, IFormatProvider?, out Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool TryParse(ReadOnlySpan&lt;char&gt; s, IFormatProvider? provider, out Fix result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>provider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_TryParse_" data-uid="FixN.Fix.TryParse*"></a>
+
+  <h3 id="FixN_Fix_TryParse_System_String_System_Globalization_NumberStyles_System_IFormatProvider_FixN_Fix__" data-uid="FixN.Fix.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,FixN.Fix@)">
+  TryParse(string?, NumberStyles, IFormatProvider?, out Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool TryParse(string? s, NumberStyles style, IFormatProvider? provider, out Fix result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>style</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.numberstyles">NumberStyles</a></dt>
+    <dd></dd>
+    <dt><code>provider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_TryParse_" data-uid="FixN.Fix.TryParse*"></a>
+
+  <h3 id="FixN_Fix_TryParse_System_String_System_IFormatProvider_FixN_Fix__" data-uid="FixN.Fix.TryParse(System.String,System.IFormatProvider,FixN.Fix@)">
+  TryParse(string?, IFormatProvider?, out Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool TryParse(string? s, IFormatProvider? provider, out Fix result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>provider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Addition_" data-uid="FixN.Fix.op_Addition*"></a>
+
+  <h3 id="FixN_Fix_op_Addition_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.op_Addition(FixN.Fix,FixN.Fix)">
+  operator +(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix operator +(Fix left, Fix right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Decrement_" data-uid="FixN.Fix.op_Decrement*"></a>
+
+  <h3 id="FixN_Fix_op_Decrement_FixN_Fix_" data-uid="FixN.Fix.op_Decrement(FixN.Fix)">
+  operator --(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix operator --(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Division_" data-uid="FixN.Fix.op_Division*"></a>
+
+  <h3 id="FixN_Fix_op_Division_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.op_Division(FixN.Fix,FixN.Fix)">
+  operator /(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix operator /(Fix left, Fix right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Equality_" data-uid="FixN.Fix.op_Equality*"></a>
+
+  <h3 id="FixN_Fix_op_Equality_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.op_Equality(FixN.Fix,FixN.Fix)">
+  operator ==(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool operator ==(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_GreaterThan_" data-uid="FixN.Fix.op_GreaterThan*"></a>
+
+  <h3 id="FixN_Fix_op_GreaterThan_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.op_GreaterThan(FixN.Fix,FixN.Fix)">
+  operator &gt;(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool operator &gt;(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_GreaterThanOrEqual_" data-uid="FixN.Fix.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="FixN_Fix_op_GreaterThanOrEqual_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.op_GreaterThanOrEqual(FixN.Fix,FixN.Fix)">
+  operator &gt;=(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool operator &gt;=(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Increment_" data-uid="FixN.Fix.op_Increment*"></a>
+
+  <h3 id="FixN_Fix_op_Increment_FixN_Fix_" data-uid="FixN.Fix.op_Increment(FixN.Fix)">
+  operator ++(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix operator ++(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Inequality_" data-uid="FixN.Fix.op_Inequality*"></a>
+
+  <h3 id="FixN_Fix_op_Inequality_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.op_Inequality(FixN.Fix,FixN.Fix)">
+  operator !=(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool operator !=(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_LessThan_" data-uid="FixN.Fix.op_LessThan*"></a>
+
+  <h3 id="FixN_Fix_op_LessThan_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.op_LessThan(FixN.Fix,FixN.Fix)">
+  operator &lt;(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool operator &lt;(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_LessThanOrEqual_" data-uid="FixN.Fix.op_LessThanOrEqual*"></a>
+
+  <h3 id="FixN_Fix_op_LessThanOrEqual_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.op_LessThanOrEqual(FixN.Fix,FixN.Fix)">
+  operator &lt;=(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static bool operator &lt;=(Fix a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Modulus_" data-uid="FixN.Fix.op_Modulus*"></a>
+
+  <h3 id="FixN_Fix_op_Modulus_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.op_Modulus(FixN.Fix,FixN.Fix)">
+  operator %(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix operator %(Fix left, Fix right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Multiply_" data-uid="FixN.Fix.op_Multiply*"></a>
+
+  <h3 id="FixN_Fix_op_Multiply_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.op_Multiply(FixN.Fix,FixN.Fix)">
+  operator *(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix operator *(Fix left, Fix right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_Subtraction_" data-uid="FixN.Fix.op_Subtraction*"></a>
+
+  <h3 id="FixN_Fix_op_Subtraction_FixN_Fix_FixN_Fix_" data-uid="FixN.Fix.op_Subtraction(FixN.Fix,FixN.Fix)">
+  operator -(Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix operator -(Fix left, Fix right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_UnaryNegation_" data-uid="FixN.Fix.op_UnaryNegation*"></a>
+
+  <h3 id="FixN_Fix_op_UnaryNegation_FixN_Fix_" data-uid="FixN.Fix.op_UnaryNegation(FixN.Fix)">
+  operator -(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix operator -(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Fix_op_UnaryPlus_" data-uid="FixN.Fix.op_UnaryPlus*"></a>
+
+  <h3 id="FixN_Fix_op_UnaryPlus_FixN_Fix_" data-uid="FixN.Fix.op_UnaryPlus(FixN.Fix)">
+  operator +(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">static Fix operator +(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Developed by <a href="https://lucasteles.dev/">Lucas Teles</a>.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

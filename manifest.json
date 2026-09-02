@@ -1,0 +1,291 @@
+{
+  "sitemap": {
+    "baseUrl": "https://delta3-studio.github.io/FixN/"
+  },
+  "source_base_path": "/home/runner/work/FixN/FixN/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Axis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Axis.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.AxisEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.AxisEx.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.EasingFn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.EasingFn.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Back.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Back.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Bounce.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Bounce.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Circular.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Circular.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Cubic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Cubic.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Elastic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Elastic.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Exponential.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Exponential.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Quadratic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Quadratic.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Quartic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Quartic.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Quintic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Quintic.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Sinusoidal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Sinusoidal.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Perc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Perc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Rect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Rect.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Vec2.Rotator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Vec2.Rotator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Vec2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Vec2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Vec3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Vec3.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
