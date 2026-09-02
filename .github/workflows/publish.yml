@@ -1,0 +1,128 @@
+name: Publish
+
+on:
+    workflow_dispatch:
+        inputs:
+            release_nuget:
+                description: 'Publish Nuget.org ?'
+                type: boolean
+                required: false
+                default: true
+
+            release_github:
+                description: 'Publish GitHub Packages ?'
+                type: boolean
+                required: false
+                default: false
+
+
+env:
+    DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+    DOTNET_CLI_TELEMETRY_OPTOUT: true
+    GITHUB_ACTIONS: true
+    NUGET_TAG: -preview
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        outputs:
+            Version: ${{ steps.gitversion.outputs.SemVer }}
+            IsNewVersion: ${{ steps.gitversion.outputs.CommitsSinceVersionSource > 0 }} # Check if there has been a commit/version change
+            PreReleaseTag: ${{ steps.gitversion.outputs.NuGetPreReleaseTagV2 }}
+
+        steps:
+            -   name: Checkout Branch
+                uses: actions/checkout@v4
+                with:
+                    fetch-depth: 0
+
+            -   name: Setup .NET Core
+                uses: actions/setup-dotnet@v4
+                with:
+                    global-json-file: global.json
+
+            -   name: Tool Restore
+                run: dotnet tool restore
+
+            -   name: Install GitVersion
+                uses: gittools/actions/gitversion/setup@v3.1.11
+                with:
+                    versionSpec: 6.0.x
+
+            -   name: Determine Version
+                uses: gittools/actions/gitversion/execute@v3.1.11
+                id: gitversion
+                with:
+                    useConfigFile: true
+
+            -   name: Display GitVersion outputs
+                run: |
+                    echo "Version: ${{ steps.gitversion.outputs.SemVer }}"
+                    echo "CommitsSinceVersionSource: ${{ steps.gitversion.outputs.CommitsSinceVersionSource }}"
+
+            -   name: Test
+                run: dotnet nuke test
+            -   name: Build and Pack NuGet package
+                run: |
+                    dotnet pack src/ --configuration Release \
+                        --output ./build_artifacts \
+                        -p:Version="${{ steps.gitversion.outputs.SemVer }}${{ env.NUGET_TAG }}"
+
+            -   name: Upload lib NuGet package artifact to GitHub
+                uses: actions/upload-artifact@v4
+                with:
+                    name: buildArtifacts
+                    path: ./build_artifacts
+
+
+    release_nuget:
+        name: Publish NuGet
+        runs-on: ubuntu-latest
+        if: github.event.inputs.release_nuget == 'true' && github.ref == 'refs/heads/master' # && needs.build.outputs.IsNewVersion
+        needs: build
+        permissions:
+            id-token: write
+        steps:
+            -   name: NuGet login
+                uses: NuGet/login@v1
+                id: login
+                with:
+                    user: ${{ secrets.NUGET_USER }}
+
+            -   name: Download lib nuget package artifact
+                uses: actions/download-artifact@v4
+                with:
+                    name: buildArtifacts
+                    path: ./build_artifacts
+
+            -   name: Release Nuget package
+                run: |
+                    dotnet nuget push build_artifacts/*.nupkg --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+
+            -   name: Create Release
+                uses: ncipollo/release-action@v1
+                with:
+                    tag: ${{ needs.build.outputs.Version }}
+                    prerelease: true
+                    name: Release ${{ needs.build.outputs.Version }}
+                    artifacts: "build_artifacts/*"
+                    token: ${{ secrets.GITHUB_TOKEN }}
+
+    release_github:
+        name: Publish Github Packages
+        runs-on: ubuntu-latest
+        if: github.event.inputs.release_github == 'true' && github.ref == 'refs/heads/master' && needs.build.outputs.IsNewVersion
+        needs: build
+        steps:
+            -   name: Download lib nuget package artifact
+                uses: actions/download-artifact@v4
+                with:
+                    name: buildArtifacts
+                    path: ./build_artifacts
+
+            -   name: Add NuGet source
+                run: dotnet nuget add source --username ${{ github.repository_owner }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Delta3-Studio/index.json"
+
+            -   name: Release GitHub package
+                run: dotnet nuget push build_artifacts/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
+

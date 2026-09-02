@@ -1,0 +1,53 @@
+name: PR
+
+on:
+    workflow_dispatch:
+    pull_request:
+        types:
+            - opened
+            - reopened
+            - synchronize
+            - converted_to_draft
+            - ready_for_review
+env:
+    DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+    DOTNET_CLI_TELEMETRY_OPTOUT: true
+    GITHUB_ACTIONS: true
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        concurrency:
+            group: ${{ github.head_ref || github.ref_name }}
+            cancel-in-progress: true
+
+        steps:
+            - name: Checkout Branch
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup .NET Core
+              uses: actions/setup-dotnet@v4
+              with:
+                  global-json-file: global.json
+
+            - name: Tool Restore
+              run: dotnet tool restore
+
+            - name: Build
+              run: dotnet nuke build
+
+            - name: Lint
+              run: dotnet nuke lint
+
+            - name: Tests
+              run: dotnet nuke test --configuration Release --skip build --no-logo
+
+            - name: Test Result
+              if: ${{ github.actor != 'dependabot[bot]' && (success() || failure()) }}
+              uses: dorny/test-reporter@v1.5.0
+              with:
+                  name: Test Report
+                  reporter: dotnet-trx
+                  path: tests/**/test_result.xml

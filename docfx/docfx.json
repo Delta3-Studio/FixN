@@ -1,0 +1,62 @@
+{
+    "metadata": [
+        {
+            "src": [
+                {
+                    "src": "../",
+                    "files": [
+                        "src/bin/Release/**.dll"
+                    ]
+                }
+            ],
+            "dest": "api"
+        }
+    ],
+    "build": {
+        "content": [
+            {
+                "files": [
+                    "**/*.{md,yml}"
+                ],
+                "exclude": [
+                    "_site/**"
+                ]
+            }
+        ],
+        "resource": [
+            {
+                "files": [
+                    "docs/images/**"
+                ]
+            }
+        ],
+        "template": [
+            "default",
+            "modern",
+            "template"
+        ],
+        "output": "_site",
+        "sitemap": {
+            "baseUrl": "https://delta3-studio.github.io/FixN"
+        },
+        "postProcessors": [
+            "ExtractSearchIndex"
+        ],
+        "globalMetadata": {
+            "noLangKeyword": false,
+            "_appName": "FixN",
+            "_appTitle": "Fixed point number",
+            "_enableSearch": true,
+            "_enableNewTab": true,
+            "_appFooter": "<span>Developed by <a href=\"https://lucasteles.dev/\">Lucas Teles</a>.</span>",
+            "pdf": false,
+            "_disableContribution": false,
+            "_gitUrlPattern": "github",
+            "_gitContribute": {
+                "repo": "https://github.com/Delta3-Studio/FixN",
+                "branch": "master",
+                "apiSpecFolder": "api"
+            }
+        }
+    }
+}
