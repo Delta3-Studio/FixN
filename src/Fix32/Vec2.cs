@@ -142,7 +142,7 @@ public struct Vec2(Fix x, Fix y) :
         new(Fix.Min(left.X, right.X), Fix.Min(left.Y, right.Y));
 
     [MImpl(AggInline)]
-    public static Vec2 Sign(in Vec2 value) => new(Fix.Sign(value.X), Fix.Sign(value.Y));
+    public static Vec2 Sign(in Vec2 value) => new(Fix.SignF(value.X), Fix.SignF(value.Y));
 
     [MImpl(AggInline)]
     public static Vec2 Abs(in Vec2 value) => new(Fix.Abs(value.X), Fix.Abs(value.Y));

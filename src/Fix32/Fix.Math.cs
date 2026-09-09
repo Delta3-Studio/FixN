@@ -119,6 +119,15 @@ public readonly partial struct Fix
         };
 
     [MImpl(AggInline)]
+    public static Fix SignF(Fix value) =>
+        value.RawValue switch
+        {
+            > 0 => One,
+            < 0 => NegativeOne,
+            _ => Zero,
+        };
+
+    [MImpl(AggInline)]
     public static Fix Round(Fix value)
     {
         const int mid = 0x8000;

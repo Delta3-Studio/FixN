@@ -328,11 +328,11 @@ public readonly partial struct Fix : INumber<Fix>, IMinMaxValue<Fix>
     [MImpl(AggInline)] public static explicit operator double(Fix f) => f.ToDouble();
     [MImpl(AggInline)] public static explicit operator decimal(Fix f) => f.ToDecimal();
     [MImpl(AggInline)] public static explicit operator bool(Fix f) => f.ToBool();
+    [MImpl(AggInline)] public static implicit operator Fix(int v) => new(v);
     [MImpl(AggInline)] public static explicit operator Fix(bool v) => new(v);
     [MImpl(AggInline)] public static implicit operator Fix(float v) => new(v);
     [MImpl(AggInline)] public static implicit operator Fix(double v) => new(v);
     [MImpl(AggInline)] public static implicit operator Fix(decimal v) => new(v);
-    [MImpl(AggInline)] public static implicit operator Fix(int v) => new(v);
 
     [MImpl(AggInline)]
     static bool TryConvertFrom<TOther>(TOther value, out Fix result)

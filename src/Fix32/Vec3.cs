@@ -191,7 +191,7 @@ public struct Vec3(Fix x, Fix y, Fix z) :
         new(Fix.Min(left.X, right.X), Fix.Min(left.Y, right.Y), Fix.Min(left.Z, right.Z));
 
     [MImpl(AggInline)]
-    public static Vec3 Sign(in Vec3 value) => new(Fix.Sign(value.X), Fix.Sign(value.Y), Fix.Sign(value.Z));
+    public static Vec3 Sign(in Vec3 value) => new(Fix.SignF(value.X), Fix.SignF(value.Y), Fix.Sign(value.Z));
 
     [MImpl(AggInline)]
     public static Vec3 Abs(in Vec3 value) => new(Fix.Abs(value.X), Fix.Abs(value.Y), Fix.Abs(value.Z));
