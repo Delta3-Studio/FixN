@@ -84,6 +84,12 @@ public struct Rect(Vec2 position, Vec2 size) :
         get => Position + (Size * Fix.Half);
     }
 
+    public readonly bool IsEmpty
+    {
+        [MImpl(AggInline)]
+        get => Size.IsZero() && Position.IsZero();
+    }
+
     public override readonly int GetHashCode() =>
         StableHash.Combine(X.RawValue, Y.RawValue, Width.RawValue, Height.RawValue);
 
@@ -147,7 +153,10 @@ public struct Rect(Vec2 position, Vec2 size) :
         X <= value.X && value.X <= X + Width && Y <= value.Y &&
         value.Y <= Y + Height;
 
+    [MImpl(AggInline)]
     public readonly Rect Offset(in Vec2 by) => new(Position + by, Size);
+
+    [MImpl(AggInline)]
     public readonly Rect Offset(Fix x, Fix y) => Offset(new(x, y));
 
     public readonly Rect Inflate(in Vec2 amount) =>
@@ -158,15 +167,6 @@ public struct Rect(Vec2 position, Vec2 size) :
 
     public readonly Rect Inflate(Fix by) => Inflate(new Vec2(by, by));
 
-    public readonly Rect Mirror()
-    {
-        var half = Width * Fix.Half;
-        var pos = new Vec2(-(Position.X + half), Position.Y);
-        return new(pos.X - half, pos.Y, Width, Height);
-    }
-
-    public readonly Rect CentralizeX() => new(X - (Width * Fix.Half), Y, Width, Height);
-
     public static Rect Union(Rect a, Rect b)
     {
         var x1 = Fix.Min(a.X, b.X);
@@ -175,6 +175,25 @@ public struct Rect(Vec2 position, Vec2 size) :
         var y2 = Fix.Max(a.Y + a.Height, b.Y + b.Height);
         return new(x1, y1, x2 - x1, y2 - y1);
     }
+
+    public readonly Rect Mirror()
+    {
+        var half = Width * Fix.Half;
+        var pos = new Vec2(-(Position.X + half), Position.Y);
+        return new(pos.X - half, pos.Y, Width, Height);
+    }
+
+    [MImpl(AggInline)]
+    public static Fix DistanceX(in Rect a, in Rect b) => Fix.Pos(Fix.Max(a.Left - b.Right, b.Left - a.Right));
+
+    [MImpl(AggInline)]
+    public static Fix DistanceX(in Rect a, Fix b) => Fix.Pos(Fix.Max(a.Left - b, b - a.Right));
+
+    [MImpl(AggInline)]
+    public static Fix DistanceX(in Rect a, in Vec2 b) => DistanceX(in a, b.X);
+
+    [MImpl(AggInline)]
+    public readonly Rect CentralizeX() => new(X - (Width * Fix.Half), Y, Width, Height);
 
     readonly string IFormattable.ToString(
         [StringSyntax(StringSyntaxAttribute.NumericFormat)]

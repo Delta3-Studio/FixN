@@ -126,7 +126,13 @@ public readonly partial struct Fix : INumber<Fix>, IMinMaxValue<Fix>
     public bool IsNegative() => RawValue < 0;
 
     [MImpl(AggInline)]
+    public bool IsNotNegative() => RawValue >= 0;
+
+    [MImpl(AggInline)]
     public bool IsPositive() => RawValue > 0;
+
+    [MImpl(AggInline)]
+    public bool IsNotPositive() => RawValue <= 0;
 
     [MImpl(AggInline)]
     public bool IsApproximately(Fix value, Fix epsilon) => Approximately(this, value, epsilon);
@@ -328,8 +334,8 @@ public readonly partial struct Fix : INumber<Fix>, IMinMaxValue<Fix>
     [MImpl(AggInline)] public static explicit operator double(Fix f) => f.ToDouble();
     [MImpl(AggInline)] public static explicit operator decimal(Fix f) => f.ToDecimal();
     [MImpl(AggInline)] public static explicit operator bool(Fix f) => f.ToBool();
-    [MImpl(AggInline)] public static implicit operator Fix(int v) => new(v);
     [MImpl(AggInline)] public static explicit operator Fix(bool v) => new(v);
+    [MImpl(AggInline)] public static implicit operator Fix(int v) => new(v);
     [MImpl(AggInline)] public static implicit operator Fix(float v) => new(v);
     [MImpl(AggInline)] public static implicit operator Fix(double v) => new(v);
     [MImpl(AggInline)] public static implicit operator Fix(decimal v) => new(v);

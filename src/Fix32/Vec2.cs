@@ -302,7 +302,9 @@ public struct Vec2(Fix x, Fix y) :
     )
     {
         charsWritten = 0;
-        SpanStringBuilder writer = new(destination, ref charsWritten, provider ?? CultureInfo.InvariantCulture);
+        SpanStringBuilder writer = new(
+            destination, ref charsWritten, provider ?? CultureInfo.InvariantCulture);
+
         return writer.Write(prefix)
                && writer.Write(X, format)
                && writer.Write(separator)

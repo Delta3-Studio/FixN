@@ -22,70 +22,60 @@ public readonly struct Perc(byte value) :
     IComparable, IComparable<Perc>,
     IComparisonOperators<Perc, Perc, bool>
 {
+    public const byte FullValue = 100;
+    const string DefaultFormat = "(#%);(-#%);(0%)";
+    const MOpt AggInline = MOpt.AggressiveInlining;
+
     public static readonly Perc Full = new(FullValue);
     public static readonly Perc Zero = new(0);
     public static readonly Perc One = new(1);
     public static readonly Perc Half = new(50);
-    const MOpt AggInline = MOpt.AggressiveInlining;
-    const string DefaultFormat = "(#%);(-#%);(0%)";
-    const byte FullValue = 100;
 
     [DebuggerBrowsable(DebuggerBrowsableState.Never)]
     readonly byte value = value;
 
     public Perc(int value) : this(Saturate(value)) { }
+    public Perc(Fix value) : this(value.ToInt()) { }
+    public Perc(double value) : this((int)Math.Round(value)) { }
+    public Perc(float value) : this((int)MathF.Round(value)) { }
+    public Perc(Half value) : this((int)System.Half.Round(value)) { }
+    [MImpl(AggInline)] static byte Saturate(int value) => (byte)Math.Clamp(value, byte.MinValue, byte.MaxValue);
+
+    [MImpl(AggInline)] public static Perc FromUnit(float n) => new((int)MathF.Round(n * FullValue));
+    [MImpl(AggInline)] public static Perc FromUnit(double n) => new((int)Math.Round(n * FullValue));
+    [MImpl(AggInline)] public static Perc FromUnit(Fix n) => new((int)Fix.Round(n * Fix.OneHundred));
 
     [MImpl(AggInline)]
-    static byte Saturate(int value) => (byte)Math.Clamp(value, byte.MinValue, byte.MaxValue);
+    public static Perc Clamped(int value, int min = 0)
+    {
+        ArgumentOutOfRangeException.ThrowIfNegative(min);
+        return new(Math.Clamp(value, min, FullValue));
+    }
 
-    [MImpl(AggInline)]
-    public static Perc Create(Fix value) => new(value.ToInt());
-
-    [MImpl(AggInline)]
-    public static Perc Create(double value) => new((int)Math.Round(value));
-
-    [MImpl(AggInline)]
-    public static Perc FromUnit(float n) => new((int)MathF.Round(n * FullValue));
-
-    [MImpl(AggInline)]
-    public static Perc FromUnit(double n) => new((int)Math.Round(n * FullValue));
-
-    [MImpl(AggInline)]
-    public static Perc FromUnit(Fix n) => new((int)Fix.Round(n * Fix.OneHundred));
-
-    [MImpl(AggInline)]
-    public static Perc Clamped(int value, int min = 0) => Clamp(new Perc(value), new(min));
-
-    [MImpl(AggInline)]
-    public static Perc Clamp(Perc value, Perc min, Perc max) =>
+    [MImpl(AggInline)] public static Perc Clamp(Perc value, Perc min, Perc max) =>
         new(byte.Clamp(value.value, min.value, max.value));
 
-    [MImpl(AggInline)]
-    public static Perc Clamp(Perc value, Perc min) => Clamp(value, min, Full);
+    [MImpl(AggInline)] public static Perc Clamp(Perc value, Perc min) => Clamp(value, min, Full);
+    [MImpl(AggInline)] public static Perc Clamp(Perc value) => Clamp(value, Zero, Full);
+    [MImpl(AggInline)] public static Perc Normalize(Perc p) => new(Normalize(p.value));
+    [MImpl(AggInline)] public static int Normalize(byte value) => byte.Clamp(value, 0, FullValue);
+    [MImpl(AggInline)] public static int Normalize(int value) => Math.Clamp(value, 0, FullValue);
+    [MImpl(AggInline)] public static double Normalize(double value) => Math.Clamp(value, 0, FullValue);
+    [MImpl(AggInline)] public static Perc Max(Perc x, Perc y) => x >= y ? x : y;
+    [MImpl(AggInline)] public static Perc Min(Perc x, Perc y) => x <= y ? x : y;
+    [MImpl(AggInline)] public static Perc Invert(int p) => new(FullValue - p);
+    [MImpl(AggInline)] public static Perc Invert(Perc p) => Invert(p.value);
+    [MImpl(AggInline)] public static int Slice(int value, int percentage) => (int)(value * (long)percentage / 100L);
+    [MImpl(AggInline)] public static int Slice(int value, Perc amount) => Slice(value, amount.value);
+    [MImpl(AggInline)] public static byte Slice(byte value, Perc amount) => Saturate(Slice((int)value, amount));
+    [MImpl(AggInline)] public static Fix Slice(Fix value, Perc amount) => value * amount.ToUnitFix();
+    [MImpl(AggInline)] public static float Slice(float value, Perc amount) => value * amount.ToUnitFloat();
+    [MImpl(AggInline)] public static double Slice(double value, Perc amount) => value * amount.ToUnitDouble();
+    [MImpl(AggInline)] public static Perc Scale(Perc value, int by) => new(by * value.value);
+    [MImpl(AggInline)] public static Perc Scale(Perc value, Fix by) => new(by * value.value);
 
     [MImpl(AggInline)]
-    public static Perc Clamp(Perc value) => Clamp(value, Zero, Full);
-
-    [MImpl(AggInline)]
-    public static Perc Max(Perc x, Perc y) => x >= y ? x : y;
-
-    [MImpl(AggInline)]
-    public static Perc Min(Perc x, Perc y) => x <= y ? x : y;
-
-    [MImpl(AggInline)]
-    public static Perc Normalize(Perc p) => new(byte.Clamp(p.value, 0, FullValue));
-
-    [MImpl(AggInline)]
-    public static Perc Inv(int p) => new(FullValue - p);
-
-    [MImpl(AggInline)]
-    public static Perc Inv(Perc p) => Inv(p.value);
-
-    [MImpl(AggInline)]
-    public static int ApplyPercentage(int value, int percentage) => (int)(value * (long)percentage / 100L);
-
-    [MImpl(AggInline)]
-    public static int FindPercentage(int part, int total)
+    public static int Find(int part, int total)
     {
         if (total is 0) return 0;
         var scaled = (long)part * 100;
@@ -104,20 +94,6 @@ public readonly struct Perc(byte value) :
     }
 
     [MImpl(AggInline)]
-    public static int Slice(int value, Perc amount) =>
-        ApplyPercentage(value, amount.value);
-
-    [MImpl(AggInline)]
-    public static byte Slice(byte value, Perc amount) =>
-        Saturate(Slice((int)value, amount));
-
-    [MImpl(AggInline)] public static Fix Slice(Fix value, Perc amount) => value * amount.ToFix();
-    [MImpl(AggInline)] public static float Slice(float value, Perc amount) => value * amount.ToFloat();
-    [MImpl(AggInline)] public static double Slice(double value, Perc amount) => value * amount.ToDouble();
-    [MImpl(AggInline)] public static Perc Scale(Perc value, int by) => new(by * value.value);
-    [MImpl(AggInline)] public static int Find(int part, int total) => FindPercentage(part, total);
-
-    [MImpl(AggInline)]
     public static double Find(double part, double total)
     {
         if (total is 0.0) return 0.0;
@@ -133,16 +109,21 @@ public readonly struct Perc(byte value) :
 
     [MImpl(AggInline)] public byte ToByte() => value;
     [MImpl(AggInline)] public int ToInt() => value;
-    [MImpl(AggInline)] public float ToFloat() => (float)value / FullValue;
-    [MImpl(AggInline)] public double ToDouble() => (double)value / FullValue;
-    [MImpl(AggInline)] public Fix ToFix() => value / Fix.OneHundred;
-    [MImpl(AggInline)] public Perc Normalized() => Normalize(this);
-    [MImpl(AggInline)] public Perc Invert() => Inv(this);
+    [MImpl(AggInline)] public Fix ToUnitFix() => value / Fix.OneHundred;
+    [MImpl(AggInline)] public double ToUnitDouble() => (double)value / FullValue;
+    [MImpl(AggInline)] public float ToUnitFloat() => (float)value / FullValue;
+    [MImpl(AggInline)] public Fix ToFix() => new(value);
+    [MImpl(AggInline)] public double ToDouble() => value;
+    [MImpl(AggInline)] public float ToFloat() => value;
+    [MImpl(AggInline)] public Half ToHalf() => value;
+    [MImpl(AggInline)] public Perc Normalize() => Normalize(this);
+    [MImpl(AggInline)] public Perc Invert() => Invert(this);
     [MImpl(AggInline)] public bool IsZero() => value is 0;
     [MImpl(AggInline)] public bool IsNonZero() => value is not 0;
     [MImpl(AggInline)] public bool IsFull() => value >= FullValue;
-    [MImpl(AggInline)] public bool IsNonFull() => value is not FullValue;
+    [MImpl(AggInline)] public bool IsNotFull() => value is not FullValue;
     [MImpl(AggInline)] public Perc Scale(int by) => Scale(this, by);
+    [MImpl(AggInline)] public Perc Scale(Fix by) => Scale(this, by);
 
     public override string ToString() => ToString(null, null);
 
@@ -155,12 +136,12 @@ public readonly struct Perc(byte value) :
         [StringSyntax(StringSyntaxAttribute.NumericFormat)]
         string? format,
         IFormatProvider? formatProvider
-    ) => ToFloat().ToString(format ?? DefaultFormat, formatProvider ?? CultureInfo.InvariantCulture);
+    ) => ToUnitFloat().ToString(format ?? DefaultFormat, formatProvider ?? CultureInfo.InvariantCulture);
 
     public bool TryFormat(
         Span<char> destination, out int charsWritten, ReadOnlySpan<char> format,
         IFormatProvider? provider) =>
-        ToFloat().TryFormat(
+        ToUnitFloat().TryFormat(
             destination, out charsWritten,
             format.IsEmpty ? DefaultFormat : format,
             provider ?? CultureInfo.InvariantCulture
@@ -176,7 +157,7 @@ public readonly struct Perc(byte value) :
         return CompareTo(other);
     }
 
-    public override int GetHashCode() => value;
+    public override int GetHashCode() => StableHash.Combine(value);
 
     [MImpl(AggInline)]
     public override bool Equals([NotNullWhen(true)] object? obj) =>
@@ -204,14 +185,16 @@ public readonly struct Perc(byte value) :
     [MImpl(AggInline)] public static double operator *(Perc left, double right) => Slice(right, left);
     [MImpl(AggInline)] public static explicit operator byte(Perc p) => p.ToByte();
     [MImpl(AggInline)] public static explicit operator int(Perc p) => p.ToInt();
-    [MImpl(AggInline)] public static explicit operator float(Perc p) => p.ToFloat();
-    [MImpl(AggInline)] public static explicit operator double(Perc p) => p.ToDouble();
     [MImpl(AggInline)] public static explicit operator Fix(Perc p) => p.ToFix();
+    [MImpl(AggInline)] public static explicit operator double(Perc p) => p.ToDouble();
+    [MImpl(AggInline)] public static explicit operator float(Perc p) => p.ToFloat();
+    [MImpl(AggInline)] public static explicit operator Half(Perc p) => p.ToHalf();
     [MImpl(AggInline)] public static explicit operator Perc(byte v) => new(v);
     [MImpl(AggInline)] public static explicit operator Perc(int v) => new(v);
-    [MImpl(AggInline)] public static explicit operator Perc(float v) => FromUnit(v);
-    [MImpl(AggInline)] public static explicit operator Perc(double v) => FromUnit(v);
-    [MImpl(AggInline)] public static explicit operator Perc(Fix v) => FromUnit(v);
+    [MImpl(AggInline)] public static explicit operator Perc(Fix v) => new(v);
+    [MImpl(AggInline)] public static explicit operator Perc(Half v) => new(v);
+    [MImpl(AggInline)] public static explicit operator Perc(float v) => new(v);
+    [MImpl(AggInline)] public static explicit operator Perc(double v) => new(v);
 
     sealed class PercJsonConverter : JsonConverter<Perc>
     {
