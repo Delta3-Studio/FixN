@@ -319,9 +319,9 @@ public struct Vec2(Fix x, Fix y) :
             Vec2 value = new();
             if (reader.TokenType is not JsonTokenType.StartArray) throw new JsonException("Start of array expected");
             reader.Read();
-            value.X = JsonSerializer.Deserialize<Fix>(ref reader, options);
+            value.X = reader.GetFix();
             reader.Read();
-            value.Y = JsonSerializer.Deserialize<Fix>(ref reader, options);
+            value.Y = reader.GetFix();
             reader.Read();
             if (reader.TokenType is not JsonTokenType.EndArray) throw new JsonException("End of array expected");
             reader.Read();
@@ -331,8 +331,8 @@ public struct Vec2(Fix x, Fix y) :
         public override void Write(Utf8JsonWriter writer, Vec2 value, JsonSerializerOptions options)
         {
             writer.WriteStartArray();
-            JsonSerializer.Serialize(writer, value.X, options);
-            JsonSerializer.Serialize(writer, value.Y, options);
+            writer.WriteNumberValue(value.X);
+            writer.WriteNumberValue(value.Y);
             writer.WriteEndArray();
         }
     }
@@ -467,12 +467,12 @@ public struct Vec2(Fix x, Fix y) :
         {
             public override Rotator Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
             {
-                var deg = JsonSerializer.Deserialize<Fix>(ref reader, options);
+                var deg = reader.GetFix();
                 return FromDegrees(deg);
             }
 
             public override void Write(Utf8JsonWriter writer, Rotator value, JsonSerializerOptions options) =>
-                JsonSerializer.Serialize(writer, value.Degrees, options);
+                writer.WriteNumberValue(value.Degrees);
         }
     }
 }

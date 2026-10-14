@@ -4,5 +4,7 @@
     <PackageId>FixN</PackageId>
     <Description>32-bit signed fixed point number math</Description>
     <PackageTags>fixed, number, deterministic, rollback, netcode</PackageTags>
+    <IsAotCompatible>true</IsAotCompatible>
+    <OptimizationPreference>Speed</OptimizationPreference>
   </PropertyGroup>
 </Project>

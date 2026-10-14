@@ -334,11 +334,11 @@ public struct Vec3(Fix x, Fix y, Fix z) :
             Vec3 value = new();
             if (reader.TokenType is not JsonTokenType.StartArray) throw new JsonException("Start of array expected");
             reader.Read();
-            value.X = JsonSerializer.Deserialize<Fix>(ref reader, options);
+            value.X = reader.GetFix();
             reader.Read();
-            value.Y = JsonSerializer.Deserialize<Fix>(ref reader, options);
+            value.Y = reader.GetFix();
             reader.Read();
-            value.Z = JsonSerializer.Deserialize<Fix>(ref reader, options);
+            value.Z = reader.GetFix();
             reader.Read();
             if (reader.TokenType is not JsonTokenType.EndArray) throw new JsonException("End of array expected");
             reader.Read();
@@ -348,9 +348,9 @@ public struct Vec3(Fix x, Fix y, Fix z) :
         public override void Write(Utf8JsonWriter writer, Vec3 value, JsonSerializerOptions options)
         {
             writer.WriteStartArray();
-            JsonSerializer.Serialize(writer, value.X, options);
-            JsonSerializer.Serialize(writer, value.Y, options);
-            JsonSerializer.Serialize(writer, value.Z, options);
+            writer.WriteNumberValue(value.X);
+            writer.WriteNumberValue(value.Y);
+            writer.WriteNumberValue(value.Z);
             writer.WriteEndArray();
         }
     }

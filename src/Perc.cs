@@ -52,7 +52,8 @@ public readonly struct Perc(byte value) :
         return new(Math.Clamp(value, min, FullValue));
     }
 
-    [MImpl(AggInline)] public static Perc Clamp(Perc value, Perc min, Perc max) =>
+    [MImpl(AggInline)]
+    public static Perc Clamp(Perc value, Perc min, Perc max) =>
         new(byte.Clamp(value.value, min.value, max.value));
 
     [MImpl(AggInline)] public static Perc Clamp(Perc value, Perc min) => Clamp(value, min, Full);

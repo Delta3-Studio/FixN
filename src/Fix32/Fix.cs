@@ -443,14 +443,11 @@ public readonly partial struct Fix : INumber<Fix>, IMinMaxValue<Fix>
 
     sealed class FixedJsonConverter : JsonConverter<Fix>
     {
-        public override Fix Read(ref Utf8JsonReader reader, Type typeToConvert,
-            JsonSerializerOptions options)
-        {
-            var value = reader.GetDouble();
-            return new(value);
-        }
+        public override Fix Read(
+            ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
+            reader.GetFix();
 
         public override void Write(Utf8JsonWriter writer, Fix value, JsonSerializerOptions options) =>
-            writer.WriteNumberValue(value.ToDouble());
+            writer.WriteNumberValue(value);
     }
 }

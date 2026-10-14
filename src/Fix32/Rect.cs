@@ -264,13 +264,13 @@ public struct Rect(Vec2 position, Vec2 size) :
             Rect value = new();
             if (reader.TokenType is not JsonTokenType.StartArray) throw new JsonException("Start of array expected");
             reader.Read();
-            value.Position.X = JsonSerializer.Deserialize<Fix>(ref reader, options);
+            value.Position.X = reader.GetFix();
             reader.Read();
-            value.Position.Y = JsonSerializer.Deserialize<Fix>(ref reader, options);
+            value.Position.Y = reader.GetFix();
             reader.Read();
-            value.Size.X = JsonSerializer.Deserialize<Fix>(ref reader, options);
+            value.Size.X = reader.GetFix();
             reader.Read();
-            value.Size.Y = JsonSerializer.Deserialize<Fix>(ref reader, options);
+            value.Size.Y = reader.GetFix();
             reader.Read();
             if (reader.TokenType is not JsonTokenType.EndArray) throw new JsonException("End of array expected");
             reader.Read();
@@ -280,10 +280,10 @@ public struct Rect(Vec2 position, Vec2 size) :
         public override void Write(Utf8JsonWriter writer, Rect value, JsonSerializerOptions options)
         {
             writer.WriteStartArray();
-            JsonSerializer.Serialize(writer, value.X, options);
-            JsonSerializer.Serialize(writer, value.Y, options);
-            JsonSerializer.Serialize(writer, value.Width, options);
-            JsonSerializer.Serialize(writer, value.Height, options);
+            writer.WriteNumberValue(value.X);
+            writer.WriteNumberValue(value.Y);
+            writer.WriteNumberValue(value.Width);
+            writer.WriteNumberValue(value.Height);
             writer.WriteEndArray();
         }
     }
