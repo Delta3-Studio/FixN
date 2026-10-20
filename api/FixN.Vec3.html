@@ -1,0 +1,3235 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Vec3 | Fixed point number </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Vec3 | Fixed point number ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="FixN">
+            FixN
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="FixN.Vec3">
+
+
+
+  <h1 id="FixN_Vec3" data-uid="FixN.Vec3" class="text-break">
+Struct Vec3  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="FixN.html">FixN</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FixN.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonConverter(typeof(Vec3.Vec3JsonConverter))]
+public struct Vec3 : IEquatable&lt;Vec3&gt;, ISpanFormattable, IFormattable, IEqualityOperators&lt;Vec3, Vec3, bool&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="FixN.Vec3.html">Vec3</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.ispanformattable">ISpanFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.iequalityoperators-3">IEqualityOperators</a>&lt;<a class="xref" href="FixN.Vec3.html">Vec3</a>, <a class="xref" href="FixN.Vec3.html">Vec3</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="FixN_Vec3__ctor_" data-uid="FixN.Vec3.#ctor*"></a>
+
+  <h3 id="FixN_Vec3__ctor" data-uid="FixN.Vec3.#ctor">
+  Vec3()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec3()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3__ctor_" data-uid="FixN.Vec3.#ctor*"></a>
+
+  <h3 id="FixN_Vec3__ctor_FixN_Axis_" data-uid="FixN.Vec3.#ctor(FixN.Axis)">
+  Vec3(Axis)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec3(Axis value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Axis.html">Axis</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3__ctor_" data-uid="FixN.Vec3.#ctor*"></a>
+
+  <h3 id="FixN_Vec3__ctor_FixN_Fix_" data-uid="FixN.Vec3.#ctor(FixN.Fix)">
+  Vec3(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec3(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3__ctor_" data-uid="FixN.Vec3.#ctor*"></a>
+
+  <h3 id="FixN_Vec3__ctor_FixN_Fix_FixN_Fix_FixN_Fix_" data-uid="FixN.Vec3.#ctor(FixN.Fix,FixN.Fix,FixN.Fix)">
+  Vec3(Fix, Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec3(Fix x, Fix y, Fix z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>z</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3__ctor_" data-uid="FixN.Vec3.#ctor*"></a>
+
+  <h3 id="FixN_Vec3__ctor_System_ValueTuple_FixN_Fix_FixN_Fix_FixN_Fix__" data-uid="FixN.Vec3.#ctor(System.ValueTuple{FixN.Fix,FixN.Fix,FixN.Fix})">
+  Vec3((Fix X, Fix Y, Fix Z))
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec3((Fix X, Fix Y, Fix Z) value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> (<a class="xref" href="FixN.Fix.html">Fix</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-fixn.fix,fixn.fix,fixn.fix-.x">X</a>, <a class="xref" href="FixN.Fix.html">Fix</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-fixn.fix,fixn.fix,fixn.fix-.y">Y</a>, <a class="xref" href="FixN.Fix.html">Fix</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-fixn.fix,fixn.fix,fixn.fix-.z">Z</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="FixN_Vec3_MaxValue" data-uid="FixN.Vec3.MaxValue">
+  MaxValue
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Vec3 MaxValue</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Vec3_MinValue" data-uid="FixN.Vec3.MinValue">
+  MinValue
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Vec3 MinValue</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Vec3_One" data-uid="FixN.Vec3.One">
+  One
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Vec3 One</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Vec3_UnitX" data-uid="FixN.Vec3.UnitX">
+  UnitX
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Vec3 UnitX</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Vec3_UnitXY" data-uid="FixN.Vec3.UnitXY">
+  UnitXY
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Vec3 UnitXY</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Vec3_UnitXZ" data-uid="FixN.Vec3.UnitXZ">
+  UnitXZ
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Vec3 UnitXZ</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Vec3_UnitY" data-uid="FixN.Vec3.UnitY">
+  UnitY
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Vec3 UnitY</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Vec3_UnitYZ" data-uid="FixN.Vec3.UnitYZ">
+  UnitYZ
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Vec3 UnitYZ</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Vec3_UnitZ" data-uid="FixN.Vec3.UnitZ">
+  UnitZ
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Vec3 UnitZ</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Vec3_X" data-uid="FixN.Vec3.X">
+  X
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fix X</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Vec3_Y" data-uid="FixN.Vec3.Y">
+  Y
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fix Y</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Vec3_Z" data-uid="FixN.Vec3.Z">
+  Z
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fix Z</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FixN_Vec3_Zero" data-uid="FixN.Vec3.Zero">
+  Zero
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Vec3 Zero</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="FixN_Vec3_XY_" data-uid="FixN.Vec3.XY*"></a>
+
+  <h3 id="FixN_Vec3_XY" data-uid="FixN.Vec3.XY">
+  XY
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2 XY { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec2.html">Vec2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_XZ_" data-uid="FixN.Vec3.XZ*"></a>
+
+  <h3 id="FixN_Vec3_XZ" data-uid="FixN.Vec3.XZ">
+  XZ
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2 XZ { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec2.html">Vec2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_YX_" data-uid="FixN.Vec3.YX*"></a>
+
+  <h3 id="FixN_Vec3_YX" data-uid="FixN.Vec3.YX">
+  YX
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2 YX { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec2.html">Vec2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_YZ_" data-uid="FixN.Vec3.YZ*"></a>
+
+  <h3 id="FixN_Vec3_YZ" data-uid="FixN.Vec3.YZ">
+  YZ
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2 YZ { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec2.html">Vec2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_ZX_" data-uid="FixN.Vec3.ZX*"></a>
+
+  <h3 id="FixN_Vec3_ZX" data-uid="FixN.Vec3.ZX">
+  ZX
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2 ZX { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec2.html">Vec2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_ZY_" data-uid="FixN.Vec3.ZY*"></a>
+
+  <h3 id="FixN_Vec3_ZY" data-uid="FixN.Vec3.ZY">
+  ZY
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2 ZY { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec2.html">Vec2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="FixN_Vec3_Abs_" data-uid="FixN.Vec3.Abs*"></a>
+
+  <h3 id="FixN_Vec3_Abs_FixN_Vec3__" data-uid="FixN.Vec3.Abs(FixN.Vec3@)">
+  Abs(in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Abs(in Vec3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Add_" data-uid="FixN.Vec3.Add*"></a>
+
+  <h3 id="FixN_Vec3_Add_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.Add(FixN.Vec3@,FixN.Vec3@)">
+  Add(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Add(in Vec3 a, in Vec3 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Clamp_" data-uid="FixN.Vec3.Clamp*"></a>
+
+  <h3 id="FixN_Vec3_Clamp_FixN_Vec3__FixN_Fix_FixN_Fix_" data-uid="FixN.Vec3.Clamp(FixN.Vec3@,FixN.Fix,FixN.Fix)">
+  Clamp(in Vec3, Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Clamp(in Vec3 value, Fix min, Fix max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>min</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Clamp_" data-uid="FixN.Vec3.Clamp*"></a>
+
+  <h3 id="FixN_Vec3_Clamp_FixN_Vec3__FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.Clamp(FixN.Vec3@,FixN.Vec3@,FixN.Vec3@)">
+  Clamp(in Vec3, in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Clamp(in Vec3 value, in Vec3 min, in Vec3 max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>min</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Cross_" data-uid="FixN.Vec3.Cross*"></a>
+
+  <h3 id="FixN_Vec3_Cross_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.Cross(FixN.Vec3@,FixN.Vec3@)">
+  Cross(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Cross(in Vec3 a, in Vec3 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Deconstruct_" data-uid="FixN.Vec3.Deconstruct*"></a>
+
+  <h3 id="FixN_Vec3_Deconstruct_FixN_Fix__FixN_Fix__FixN_Fix__" data-uid="FixN.Vec3.Deconstruct(FixN.Fix@,FixN.Fix@,FixN.Fix@)">
+  Deconstruct(out Fix, out Fix, out Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly void Deconstruct(out Fix x, out Fix y, out Fix z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>z</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Distance_" data-uid="FixN.Vec3.Distance*"></a>
+
+  <h3 id="FixN_Vec3_Distance_FixN_Vec3_FixN_Vec3_" data-uid="FixN.Vec3.Distance(FixN.Vec3,FixN.Vec3)">
+  Distance(Vec3, Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Distance(Vec3 left, Vec3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_DistanceSquared_" data-uid="FixN.Vec3.DistanceSquared*"></a>
+
+  <h3 id="FixN_Vec3_DistanceSquared_FixN_Vec3_FixN_Vec3_" data-uid="FixN.Vec3.DistanceSquared(FixN.Vec3,FixN.Vec3)">
+  DistanceSquared(Vec3, Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix DistanceSquared(Vec3 left, Vec3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Div_" data-uid="FixN.Vec3.Div*"></a>
+
+  <h3 id="FixN_Vec3_Div_FixN_Vec3__FixN_Fix_" data-uid="FixN.Vec3.Div(FixN.Vec3@,FixN.Fix)">
+  Div(in Vec3, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Div(in Vec3 a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Div_" data-uid="FixN.Vec3.Div*"></a>
+
+  <h3 id="FixN_Vec3_Div_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.Div(FixN.Vec3@,FixN.Vec3@)">
+  Div(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Div(in Vec3 a, in Vec3 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Dot_" data-uid="FixN.Vec3.Dot*"></a>
+
+  <h3 id="FixN_Vec3_Dot_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.Dot(FixN.Vec3@,FixN.Vec3@)">
+  Dot(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix Dot(in Vec3 a, in Vec3 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Equals_" data-uid="FixN.Vec3.Equals*"></a>
+
+  <h3 id="FixN_Vec3_Equals_FixN_Vec3_" data-uid="FixN.Vec3.Equals(FixN.Vec3)">
+  Equals(Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(Vec3 other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Equals_" data-uid="FixN.Vec3.Equals*"></a>
+
+  <h3 id="FixN_Vec3_Equals_FixN_Vec3__" data-uid="FixN.Vec3.Equals(FixN.Vec3@)">
+  Equals(in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(in Vec3 other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Equals_" data-uid="FixN.Vec3.Equals*"></a>
+
+  <h3 id="FixN_Vec3_Equals_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.Equals(FixN.Vec3@,FixN.Vec3@)">
+  Equals(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Equals(in Vec3 a, in Vec3 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Equals_" data-uid="FixN.Vec3.Equals*"></a>
+
+  <h3 id="FixN_Vec3_Equals_System_Object_" data-uid="FixN.Vec3.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Fill_" data-uid="FixN.Vec3.Fill*"></a>
+
+  <h3 id="FixN_Vec3_Fill_FixN_Fix_" data-uid="FixN.Vec3.Fill(FixN.Fix)">
+  Fill(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Fill(Fix value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Fill_" data-uid="FixN.Vec3.Fill*"></a>
+
+  <h3 id="FixN_Vec3_Fill_FixN_Fix_FixN_Axis_" data-uid="FixN.Vec3.Fill(FixN.Fix,FixN.Axis)">
+  Fill(Fix, Axis)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Fill(Fix value, Axis axis)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>axis</code> <a class="xref" href="FixN.Axis.html">Axis</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Fill_" data-uid="FixN.Vec3.Fill*"></a>
+
+  <h3 id="FixN_Vec3_Fill_FixN_Vec2__" data-uid="FixN.Vec3.Fill(FixN.Vec2@)">
+  Fill(in Vec2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Fill(in Vec2 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Vec2.html">Vec2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Fill_" data-uid="FixN.Vec3.Fill*"></a>
+
+  <h3 id="FixN_Vec3_Fill_FixN_Vec3__" data-uid="FixN.Vec3.Fill(FixN.Vec3@)">
+  Fill(in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Fill(in Vec3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_GetHashCode_" data-uid="FixN.Vec3.GetHashCode*"></a>
+
+  <h3 id="FixN_Vec3_GetHashCode" data-uid="FixN.Vec3.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Half_" data-uid="FixN.Vec3.Half*"></a>
+
+  <h3 id="FixN_Vec3_Half" data-uid="FixN.Vec3.Half">
+  Half()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Vec3 Half()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_IsZero_" data-uid="FixN.Vec3.IsZero*"></a>
+
+  <h3 id="FixN_Vec3_IsZero" data-uid="FixN.Vec3.IsZero">
+  IsZero()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsZero()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Length_" data-uid="FixN.Vec3.Length*"></a>
+
+  <h3 id="FixN_Vec3_Length" data-uid="FixN.Vec3.Length">
+  Length()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Fix Length()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_LengthSquared_" data-uid="FixN.Vec3.LengthSquared*"></a>
+
+  <h3 id="FixN_Vec3_LengthSquared" data-uid="FixN.Vec3.LengthSquared">
+  LengthSquared()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Fix LengthSquared()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Lerp_" data-uid="FixN.Vec3.Lerp*"></a>
+
+  <h3 id="FixN_Vec3_Lerp_FixN_Vec3__FixN_Vec3__FixN_Fix_" data-uid="FixN.Vec3.Lerp(FixN.Vec3@,FixN.Vec3@,FixN.Fix)">
+  Lerp(in Vec3, in Vec3, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Lerp(in Vec3 a, in Vec3 b, Fix t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Lerp_" data-uid="FixN.Vec3.Lerp*"></a>
+
+  <h3 id="FixN_Vec3_Lerp_FixN_Vec3__FixN_Vec3__FixN_Fix_FixN_Fix_" data-uid="FixN.Vec3.Lerp(FixN.Vec3@,FixN.Vec3@,FixN.Fix,FixN.Fix)">
+  Lerp(in Vec3, in Vec3, Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Lerp(in Vec3 a, in Vec3 b, Fix total, Fix current)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>total</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>current</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_LerpClamped_" data-uid="FixN.Vec3.LerpClamped*"></a>
+
+  <h3 id="FixN_Vec3_LerpClamped_FixN_Vec3__FixN_Vec3__FixN_Fix_" data-uid="FixN.Vec3.LerpClamped(FixN.Vec3@,FixN.Vec3@,FixN.Fix)">
+  LerpClamped(in Vec3, in Vec3, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 LerpClamped(in Vec3 a, in Vec3 b, Fix t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_LerpInv_" data-uid="FixN.Vec3.LerpInv*"></a>
+
+  <h3 id="FixN_Vec3_LerpInv_FixN_Vec3__FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.LerpInv(FixN.Vec3@,FixN.Vec3@,FixN.Vec3@)">
+  LerpInv(in Vec3, in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix LerpInv(in Vec3 a, in Vec3 b, in Vec3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Max_" data-uid="FixN.Vec3.Max*"></a>
+
+  <h3 id="FixN_Vec3_Max_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.Max(FixN.Vec3@,FixN.Vec3@)">
+  Max(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Max(in Vec3 left, in Vec3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Min_" data-uid="FixN.Vec3.Min*"></a>
+
+  <h3 id="FixN_Vec3_Min_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.Min(FixN.Vec3@,FixN.Vec3@)">
+  Min(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Min(in Vec3 left, in Vec3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Mirror_" data-uid="FixN.Vec3.Mirror*"></a>
+
+  <h3 id="FixN_Vec3_Mirror" data-uid="FixN.Vec3.Mirror">
+  Mirror()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Vec3 Mirror()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Multiply_" data-uid="FixN.Vec3.Multiply*"></a>
+
+  <h3 id="FixN_Vec3_Multiply_FixN_Fix_FixN_Vec3__" data-uid="FixN.Vec3.Multiply(FixN.Fix,FixN.Vec3@)">
+  Multiply(Fix, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Multiply(Fix a, in Vec3 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Multiply_" data-uid="FixN.Vec3.Multiply*"></a>
+
+  <h3 id="FixN_Vec3_Multiply_FixN_Vec3__FixN_Fix_" data-uid="FixN.Vec3.Multiply(FixN.Vec3@,FixN.Fix)">
+  Multiply(in Vec3, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Multiply(in Vec3 a, Fix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Multiply_" data-uid="FixN.Vec3.Multiply*"></a>
+
+  <h3 id="FixN_Vec3_Multiply_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.Multiply(FixN.Vec3@,FixN.Vec3@)">
+  Multiply(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Multiply(in Vec3 a, in Vec3 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Negate_" data-uid="FixN.Vec3.Negate*"></a>
+
+  <h3 id="FixN_Vec3_Negate_FixN_Vec3__" data-uid="FixN.Vec3.Negate(FixN.Vec3@)">
+  Negate(in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Negate(in Vec3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Normalize_" data-uid="FixN.Vec3.Normalize*"></a>
+
+  <h3 id="FixN_Vec3_Normalize" data-uid="FixN.Vec3.Normalize">
+  Normalize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Vec3 Normalize()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Normalize_" data-uid="FixN.Vec3.Normalize*"></a>
+
+  <h3 id="FixN_Vec3_Normalize_FixN_Vec3__" data-uid="FixN.Vec3.Normalize(FixN.Vec3@)">
+  Normalize(in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Normalize(in Vec3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Project_" data-uid="FixN.Vec3.Project*"></a>
+
+  <h3 id="FixN_Vec3_Project_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.Project(FixN.Vec3@,FixN.Vec3@)">
+  Project(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Project(in Vec3 a, in Vec3 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Reflect_" data-uid="FixN.Vec3.Reflect*"></a>
+
+  <h3 id="FixN_Vec3_Reflect_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.Reflect(FixN.Vec3@,FixN.Vec3@)">
+  Reflect(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Reflect(in Vec3 direction, in Vec3 normal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>direction</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>normal</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Round_" data-uid="FixN.Vec3.Round*"></a>
+
+  <h3 id="FixN_Vec3_Round_FixN_Vec3__" data-uid="FixN.Vec3.Round(FixN.Vec3@)">
+  Round(in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Round(in Vec3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Round_" data-uid="FixN.Vec3.Round*"></a>
+
+  <h3 id="FixN_Vec3_Round_FixN_Vec3__System_Int32_" data-uid="FixN.Vec3.Round(FixN.Vec3@,System.Int32)">
+  Round(in Vec3, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Round(in Vec3 value, int digits)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>digits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Scale_" data-uid="FixN.Vec3.Scale*"></a>
+
+  <h3 id="FixN_Vec3_Scale_FixN_Fix_" data-uid="FixN.Vec3.Scale(FixN.Fix)">
+  Scale(Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Vec3 Scale(Fix amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>amount</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Sign_" data-uid="FixN.Vec3.Sign*"></a>
+
+  <h3 id="FixN_Vec3_Sign_FixN_Vec3__" data-uid="FixN.Vec3.Sign(FixN.Vec3@)">
+  Sign(in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Sign(in Vec3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_SmoothStep_" data-uid="FixN.Vec3.SmoothStep*"></a>
+
+  <h3 id="FixN_Vec3_SmoothStep_FixN_Vec3__FixN_Vec3__FixN_Fix_" data-uid="FixN.Vec3.SmoothStep(FixN.Vec3@,FixN.Vec3@,FixN.Fix)">
+  SmoothStep(in Vec3, in Vec3, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 SmoothStep(in Vec3 a, in Vec3 b, Fix t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_SmoothStep_" data-uid="FixN.Vec3.SmoothStep*"></a>
+
+  <h3 id="FixN_Vec3_SmoothStep_FixN_Vec3__FixN_Vec3__FixN_Fix_FixN_Fix_" data-uid="FixN.Vec3.SmoothStep(FixN.Vec3@,FixN.Vec3@,FixN.Fix,FixN.Fix)">
+  SmoothStep(in Vec3, in Vec3, Fix, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 SmoothStep(in Vec3 a, in Vec3 b, Fix total, Fix current)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>total</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>current</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_SnapZero_" data-uid="FixN.Vec3.SnapZero*"></a>
+
+  <h3 id="FixN_Vec3_SnapZero_FixN_Vec3_" data-uid="FixN.Vec3.SnapZero(FixN.Vec3)">
+  SnapZero(Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 SnapZero(Vec3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_SnapZero_" data-uid="FixN.Vec3.SnapZero*"></a>
+
+  <h3 id="FixN_Vec3_SnapZero_FixN_Vec3_FixN_Fix_" data-uid="FixN.Vec3.SnapZero(FixN.Vec3,FixN.Fix)">
+  SnapZero(Vec3, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 SnapZero(Vec3 value, Fix epsilon)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>epsilon</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_Subtract_" data-uid="FixN.Vec3.Subtract*"></a>
+
+  <h3 id="FixN_Vec3_Subtract_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.Subtract(FixN.Vec3@,FixN.Vec3@)">
+  Subtract(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 Subtract(in Vec3 a, in Vec3 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_ToString_" data-uid="FixN.Vec3.ToString*"></a>
+
+  <h3 id="FixN_Vec3_ToString" data-uid="FixN.Vec3.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_ToString_" data-uid="FixN.Vec3.ToString*"></a>
+
+  <h3 id="FixN_Vec3_ToString_System_String_System_IFormatProvider_System_String_System_String_System_String_" data-uid="FixN.Vec3.ToString(System.String,System.IFormatProvider,System.String,System.String,System.String)">
+  ToString(string?, IFormatProvider?, string, string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string? format, IFormatProvider? provider = null, string separator = &quot;, &quot;, string prefix = &quot;&lt;&quot;, string suffix = &quot;&gt;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>provider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+    <dt><code>separator</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>prefix</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>suffix</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_TryFormat_" data-uid="FixN.Vec3.TryFormat*"></a>
+
+  <h3 id="FixN_Vec3_TryFormat_System_Span_System_Char__System_Int32__System_ReadOnlySpan_System_Char__System_IFormatProvider_System_String_System_String_System_String_" data-uid="FixN.Vec3.TryFormat(System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider,System.String,System.String,System.String)">
+  TryFormat(Span&lt;char&gt;, out int, ReadOnlySpan&lt;char&gt;, IFormatProvider?, string, string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool TryFormat(Span&lt;char&gt; destination, out int charsWritten, ReadOnlySpan&lt;char&gt; format = default, IFormatProvider? provider = null, string separator = &quot;, &quot;, string prefix = &quot;&lt;&quot;, string suffix = &quot;&gt;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>destination</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>charsWritten</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>provider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd></dd>
+    <dt><code>separator</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>prefix</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>suffix</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="FixN_Vec3_op_Addition_" data-uid="FixN.Vec3.op_Addition*"></a>
+
+  <h3 id="FixN_Vec3_op_Addition_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.op_Addition(FixN.Vec3@,FixN.Vec3@)">
+  operator +(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 operator +(in Vec3 left, in Vec3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_op_Division_" data-uid="FixN.Vec3.op_Division*"></a>
+
+  <h3 id="FixN_Vec3_op_Division_FixN_Vec3_FixN_Fix_" data-uid="FixN.Vec3.op_Division(FixN.Vec3,FixN.Fix)">
+  operator /(Vec3, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 operator /(Vec3 left, Fix right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_op_Division_" data-uid="FixN.Vec3.op_Division*"></a>
+
+  <h3 id="FixN_Vec3_op_Division_FixN_Vec3_FixN_Vec3_" data-uid="FixN.Vec3.op_Division(FixN.Vec3,FixN.Vec3)">
+  operator /(Vec3, Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 operator /(Vec3 left, Vec3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_op_Equality_" data-uid="FixN.Vec3.op_Equality*"></a>
+
+  <h3 id="FixN_Vec3_op_Equality_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.op_Equality(FixN.Vec3@,FixN.Vec3@)">
+  operator ==(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(in Vec3 left, in Vec3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_op_Explicit_" data-uid="FixN.Vec3.op_Explicit*"></a>
+
+  <h3 id="FixN_Vec3_op_Explicit_FixN_Vec3__System_Numerics_Vector3" data-uid="FixN.Vec3.op_Explicit(FixN.Vec3)~System.Numerics.Vector3">
+  explicit operator Vector3(Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Vector3(Vec3 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_op_Explicit_" data-uid="FixN.Vec3.op_Explicit*"></a>
+
+  <h3 id="FixN_Vec3_op_Explicit_System_Numerics_Vector3__FixN_Vec3" data-uid="FixN.Vec3.op_Explicit(System.Numerics.Vector3)~FixN.Vec3">
+  explicit operator Vec3(Vector3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Vec3(Vector3 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_op_Inequality_" data-uid="FixN.Vec3.op_Inequality*"></a>
+
+  <h3 id="FixN_Vec3_op_Inequality_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.op_Inequality(FixN.Vec3@,FixN.Vec3@)">
+  operator !=(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(in Vec3 left, in Vec3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_op_Multiply_" data-uid="FixN.Vec3.op_Multiply*"></a>
+
+  <h3 id="FixN_Vec3_op_Multiply_FixN_Fix_FixN_Vec3__" data-uid="FixN.Vec3.op_Multiply(FixN.Fix,FixN.Vec3@)">
+  operator *(Fix, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 operator *(Fix left, in Vec3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_op_Multiply_" data-uid="FixN.Vec3.op_Multiply*"></a>
+
+  <h3 id="FixN_Vec3_op_Multiply_FixN_Vec3__FixN_Fix_" data-uid="FixN.Vec3.op_Multiply(FixN.Vec3@,FixN.Fix)">
+  operator *(in Vec3, Fix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 operator *(in Vec3 left, Fix right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Fix.html">Fix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_op_Multiply_" data-uid="FixN.Vec3.op_Multiply*"></a>
+
+  <h3 id="FixN_Vec3_op_Multiply_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.op_Multiply(FixN.Vec3@,FixN.Vec3@)">
+  operator *(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 operator *(in Vec3 left, in Vec3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_op_Subtraction_" data-uid="FixN.Vec3.op_Subtraction*"></a>
+
+  <h3 id="FixN_Vec3_op_Subtraction_FixN_Vec3__FixN_Vec3__" data-uid="FixN.Vec3.op_Subtraction(FixN.Vec3@,FixN.Vec3@)">
+  operator -(in Vec3, in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 operator -(in Vec3 left, in Vec3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FixN_Vec3_op_UnaryNegation_" data-uid="FixN.Vec3.op_UnaryNegation*"></a>
+
+  <h3 id="FixN_Vec3_op_UnaryNegation_FixN_Vec3__" data-uid="FixN.Vec3.op_UnaryNegation(FixN.Vec3@)">
+  operator -(in Vec3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vec3 operator -(in Vec3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FixN.Vec3.html">Vec3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Developed by <a href="https://lucasteles.dev/">Lucas Teles</a>.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
