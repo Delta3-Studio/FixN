@@ -32,6 +32,7 @@ public struct Vec2(Fix x, Fix y) :
     public Vec2() : this(Fix.Zero, Fix.Zero) { }
     public Vec2(Fix value) : this(value, value) { }
     public Vec2((Fix X, Fix Y) value) : this(value.X, value.Y) { }
+    public Vec2(Tuple<Fix, Fix> value) : this(value.Item1, value.Item2) { }
     public Vec2(Axis value) : this(value.UnitX, value.UnitY) { }
 
     public readonly void Deconstruct(out Fix x, out Fix y) => (x, y) = (X, Y);
@@ -70,8 +71,22 @@ public struct Vec2(Fix x, Fix y) :
     [MImpl(AggInline)] public static Vec2 operator /(in Vec2 left, in Fix right) => Div(in left, right);
     static bool IEqualityOperators<Vec2, Vec2, bool>.operator ==(Vec2 left, Vec2 right) => Equals(in left, in right);
     static bool IEqualityOperators<Vec2, Vec2, bool>.operator !=(Vec2 left, Vec2 right) => !Equals(in left, in right);
+    [MImpl(AggInline)] public static implicit operator Vec2(ValueTuple<Fix, Fix> v) => new(v);
+    [MImpl(AggInline)] public static explicit operator Vec2(Tuple<Fix, Fix> v) => new(v);
     [MImpl(AggInline)] public static explicit operator Vector2(Vec2 v) => new((float)v.X, (float)v.Y);
     [MImpl(AggInline)] public static explicit operator Vec2(Vector2 v) => new(new(v.X), new(v.Y));
+
+    [MImpl(AggInline)]
+    public static Vec2 From<TX, TY>(TX x, TY y) where TX : INumberBase<TX> where TY : INumberBase<TY>
+        => new(Fix.Create(x), Fix.Create(y));
+
+    [MImpl(AggInline)]
+    public static Vec2 From<TX, TY>(in (TX X, TY Y) pair) where TX : INumberBase<TX> where TY : INumberBase<TY>
+        => From(pair.X, pair.Y);
+
+    [MImpl(AggInline)]
+    public static Vec2 From<TX, TY>(Tuple<TX, TY> pair) where TX : INumberBase<TX> where TY : INumberBase<TY>
+        => From(pair.Item1, pair.Item2);
 
     public Vec2 YX
     {
