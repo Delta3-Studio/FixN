@@ -90,13 +90,19 @@ public readonly partial struct Fix : INumber<Fix>, IMinMaxValue<Fix>
     public bool HasAnyFlag(Fix value) => HasAnyFlag(value.RawValue);
 
     [MImpl(AggInline)]
-    public Fix Flag(int flag) => Raw(RawValue | flag);
+    public Fix Flag(int value, bool enabled) => enabled ? Flag(value) : Unflag(value);
+
+    [MImpl(AggInline)]
+    public Fix Flag(Fix value, bool enabled) => enabled ? Flag(value) : Unflag(value);
+
+    [MImpl(AggInline)]
+    public Fix Flag(int value) => Raw(RawValue | value);
 
     [MImpl(AggInline)]
     public Fix Flag(Fix value) => Flag(value.RawValue);
 
     [MImpl(AggInline)]
-    public Fix Unflag(int flag) => Raw(RawValue & ~flag);
+    public Fix Unflag(int value) => Raw(RawValue & ~value);
 
     [MImpl(AggInline)]
     public Fix Unflag(Fix value) => Unflag(value.RawValue);

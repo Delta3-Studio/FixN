@@ -120,6 +120,9 @@ public struct Vec2(Fix x, Fix y) :
         new(Fix.Clamp(value.X, min.X, max.X), Fix.Clamp(value.Y, min.Y, max.Y));
 
     [MImpl(AggInline)]
+    public static Vec2 Nat(in Vec2 value) => new(Fix.Nat(value.X), Fix.Nat(value.Y));
+
+    [MImpl(AggInline)]
     public static Fix DistanceSquared(Vec2 left, Vec2 right)
     {
         Fix v1 = left.X - right.X, v2 = left.Y - right.Y;
@@ -173,6 +176,19 @@ public struct Vec2(Fix x, Fix y) :
 
     [MImpl(AggInline)]
     public static Fix AngleTo(in Vec2 from, in Vec2 to) => Fix.Atan2(Cross(in from, in to), Dot(in from, in to));
+
+    [MImpl(MOpt.AggressiveInlining)]
+    public static Fix AngleRadians(in Vec2 value) => Fix.Atan2(value.X, value.Y);
+
+    [MImpl(MOpt.AggressiveInlining)]
+    public static Fix AngleDegreesSigned(in Vec2 value) => AngleRadians(in value) * Fix.Rad2Deg;
+
+    [MImpl(MOpt.AggressiveInlining)]
+    public static Fix AngleDegrees(in Vec2 value)
+    {
+        var deg = AngleDegreesSigned(in value);
+        return deg.IsNegative() ? deg + Fix.Deg360 : deg;
+    }
 
     [MImpl(AggInline)]
     public static Vec2 SmoothStep(in Vec2 a, in Vec2 b, Fix t) =>
@@ -263,7 +279,7 @@ public struct Vec2(Fix x, Fix y) :
         IFormatProvider? formatProvider
     ) => ToString(format, provider: formatProvider);
 
-    public override readonly string ToString() => ToString(null);
+    public override readonly string ToString() => ToString(null, CultureInfo.InvariantCulture);
 
     public readonly string ToString(
         [StringSyntax(StringSyntaxAttribute.NumericFormat)]
@@ -444,12 +460,12 @@ public struct Vec2(Fix x, Fix y) :
         [MImpl(AggInline)]
         public static Fix operator -(Rotator a, Rotator b) => Delta(in a, in b);
 
-        public override string ToString() => ToString(null, null);
+        public override string ToString() => ToString(null, CultureInfo.InvariantCulture);
 
         public string ToString(
             [StringSyntax(StringSyntaxAttribute.NumericFormat)]
             string? format
-        ) => ToString(format, null);
+        ) => ToString(format, CultureInfo.InvariantCulture);
 
         public string ToString(
             [StringSyntax(StringSyntaxAttribute.NumericFormat)]
@@ -461,7 +477,11 @@ public struct Vec2(Fix x, Fix y) :
             Span<char> destination, out int charsWritten,
             [StringSyntax(StringSyntaxAttribute.NumericFormat)]
             ReadOnlySpan<char> format, IFormatProvider? provider
-        ) => Degrees.TryFormat(destination, out charsWritten, format.IsEmpty ? "F2" : format, provider);
+        ) => Degrees.TryFormat(
+            destination, out charsWritten,
+            format.IsEmpty ? "F2" : format,
+            provider
+        );
 
         sealed class RotatorJsonConverter : JsonConverter<Rotator>
         {

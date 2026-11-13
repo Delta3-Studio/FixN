@@ -184,10 +184,10 @@ public struct Rect(Vec2 position, Vec2 size) :
     }
 
     [MImpl(AggInline)]
-    public static Fix DistanceX(in Rect a, in Rect b) => Fix.Pos(Fix.Max(a.Left - b.Right, b.Left - a.Right));
+    public static Fix DistanceX(in Rect a, in Rect b) => Fix.Nat(Fix.Max(a.Left - b.Right, b.Left - a.Right));
 
     [MImpl(AggInline)]
-    public static Fix DistanceX(in Rect a, Fix b) => Fix.Pos(Fix.Max(a.Left - b, b - a.Right));
+    public static Fix DistanceX(in Rect a, Fix b) => Fix.Nat(Fix.Max(a.Left - b, b - a.Right));
 
     [MImpl(AggInline)]
     public static Fix DistanceX(in Rect a, in Vec2 b) => DistanceX(in a, b.X);

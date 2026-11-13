@@ -162,7 +162,7 @@ public readonly partial struct Fix
     public static Fix Min(Fix x, Fix y) => x <= y ? x : y;
 
     [MImpl(AggInline)]
-    public static Fix Pos(Fix value) => Max(value, Zero);
+    public static Fix Nat(Fix value) => Max(value, Zero);
 
     [MImpl(AggInline)]
     public static bool Approximately(Fix a, Fix b, Fix epsilon) => Abs(a - b) < epsilon;
@@ -219,7 +219,7 @@ public readonly partial struct Fix
     [MImpl(AggInline)]
     public static Fix FrameStep(Fix total, Fix current)
     {
-        var step = Pos(total - current);
+        var step = Nat(total - current);
         var frames = total <= Zero ? One : total;
         return step / frames;
     }
