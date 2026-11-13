@@ -1,0 +1,375 @@
+{
+  "sitemap": {
+    "baseUrl": "https://delta3-studio.github.io/FixN/"
+  },
+  "source_base_path": "/home/runner/work/FixN/FixN/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Axis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Axis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Axis",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.AxisEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.AxisEx.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.AxisEx",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.EasingFn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.EasingFn.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.EasingFn",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Back.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Back.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Fix.Easing.Back",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Bounce.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Bounce.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Fix.Easing.Bounce",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Circular.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Circular.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Fix.Easing.Circular",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Cubic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Cubic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Fix.Easing.Cubic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Elastic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Elastic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Fix.Easing.Elastic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Exponential.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Exponential.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Fix.Easing.Exponential",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Quadratic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Quadratic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Fix.Easing.Quadratic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Quartic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Quartic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Fix.Easing.Quartic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Quintic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Quintic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Fix.Easing.Quintic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.Sinusoidal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.Sinusoidal.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Fix.Easing.Sinusoidal",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.Easing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.Easing.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Fix.Easing",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Fix.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Fix.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Fix",
+      "Summary": "<p sourcefile=\"api/FixN.Fix.yml\" sourcestartlinenumber=\"1\">32-bit signed fixed point number Q16.16</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Perc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Perc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Perc",
+      "Summary": "<p sourcefile=\"api/FixN.Perc.yml\" sourcestartlinenumber=\"1\">Low-precision percentage number</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Rect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Rect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Rect",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Vec2.Rotator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Vec2.Rotator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Vec2.Rotator",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Vec2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Vec2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Vec2",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.Vec3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.Vec3.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN.Vec3",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FixN.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FixN.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "FixN",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
